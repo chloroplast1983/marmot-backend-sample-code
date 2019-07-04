@@ -1,0 +1,47 @@
+nginx:
+ image: "registry.cn-hangzhou.aliyuncs.com/nginx-phpfpm/nginx-end"
+ ports:
+  - "8081:80"
+ links:
+  - "phpfpm"
+ volumes:
+  - ./:/var/www/html/
+ container_name: backend-sample-nginx
+
+phpfpm:
+  image: "registry.cn-hangzhou.aliyuncs.com/phpfpm/phpfpm-end"
+  volumes:
+   - ./:/var/www/html/
+  links:
+   - "memcached-1"
+   - "memcached-2"
+   - "mysql"
+   - "mongo"
+  cap_add:
+   - SYS_PTRACE
+  environment:
+   - APP_ENV=dev
+  container_name: backend-sample-phpfpm
+
+mysql:
+  image: "registry.cn-hangzhou.aliyuncs.com/marmot/mysql-5.7"
+  environment:
+   - MYSQL_ROOT_PASSWORD=123456
+
+mongo:
+  image: "registry.cn-hangzhou.aliyuncs.com/marmot-mongo/mongo-3.6"
+
+phpmyadmin:
+  image: "registry.cn-hangzhou.aliyuncs.com/marmot/phpmyadmin"
+  links:
+    - "mysql:mysql"
+  ports:
+   - "10081:80"
+  environment:
+   - UPLOAD_SIZE=1G
+
+memcached-1:
+  image: "registry.cn-hangzhou.aliyuncs.com/marmot/memcached:1.0"
+
+memcached-2:
+  image: "registry.cn-hangzhou.aliyuncs.com/marmot/memcached:1.0"
