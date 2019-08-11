@@ -93,13 +93,12 @@ class EditNewsCommandHandlerTest extends TestCase
                    ->willReturn($contentDocument->reveal());
 
         $news = $this->prophesize(News::class);
-
         $news->setTitle(Argument::exact($title))->shouldBeCalledTimes(1);
         $news->setSource(Argument::exact($source))->shouldBeCalledTimes(1);
         $news->setImage(Argument::exact($image))->shouldBeCalledTimes(1);
         $news->setAttachments(Argument::exact($attachments))->shouldBeCalledTimes(1);
         $news->setContent(Argument::exact($contentDocument))->shouldBeCalledTimes(1);
-        
+    
         $news->edit()->shouldBeCalledTimes(1)->willReturn(true);
 
         $this->editStub->expects($this->once())

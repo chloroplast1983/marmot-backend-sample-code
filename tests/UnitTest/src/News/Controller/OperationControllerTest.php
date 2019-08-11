@@ -25,11 +25,11 @@ class OperationControllerTest extends TestCase
     public function setUp()
     {
         $this->newsStub = $this->getMockBuilder(TestOperationController::class)
-        ->setMethods([
-            'getRequest',
-            'getResponse',
-            ])
-        ->getMock();
+                        ->setMethods([
+                            'getRequest',
+                            'getResponse',
+                            ])
+                        ->getMock();
 
         $this->faker = \Faker\Factory::create('zh_CN');
     }

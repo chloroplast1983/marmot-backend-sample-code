@@ -28,8 +28,8 @@ class NewsDBAdapterTest extends TestCase
     public function setUp()
     {
         $this->adapter = $this->getMockBuilder(TestNewsDBAdapter::class)
-        ->setMethods(['formatSort'])
-        ->getMock();
+                        ->setMethods(['formatSort'])
+                        ->getMock();
 
         $this->translator = $this->prophesize(NewsDBTranslator::class);
         $this->rowCacheQuery = $this->prophesize(NewsRowCacheQuery::class);

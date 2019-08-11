@@ -1,8 +1,6 @@
 <?php
 namespace UserGroup\View;
 
-use UserGroup\Model\UserGroup;
-
 use Neomerx\JsonApi\Schema\SchemaProvider;
 
 /**

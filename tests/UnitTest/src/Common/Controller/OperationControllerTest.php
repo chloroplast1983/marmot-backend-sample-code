@@ -12,63 +12,63 @@ class OperationControllerTest extends TestCase
 
     private $childController;
 
+    private $resource;
+
     public function setUp()
     {
         $this->controller = $this->getMockBuilder(OperationController::class)
                                  ->setMethods(['getController'])
                                  ->getMock();
                                  
-        $this->childController = new class extends OperationController{
+        $this->childController = new class extends OperationController
+        {
             public function getController(string $resource) : IOperatAbleController
             {
                 return parent::getController($resource);
             }
         };
+
+        $this->resource = 'tests';
     }
 
     public function tearDown()
     {
         unset($this->controller);
         unset($this->childController);
+        unset($this->resource);
     }
 
     public function testGetOperationController()
     {
-        $resource = 'services';
         $this->assertInstanceOf(
             'Common\Controller\Interfaces\IOperatAbleController',
-            $this->childController->getController($resource)
+            $this->childController->getController($this->resource)
         );
     }
 
     public function testAdd()
     {
-        $resource = 'test';
-
         $operationController = $this->prophesize(IOperatAbleController::class);
         $operationController->add()->shouldBeCalledTimes(1);
-
         $this->controller->expects($this->once())
                          ->method('getController')
-                         ->with($resource)
+                         ->with($this->resource)
                          ->willReturn($operationController->reveal());
 
-        $this->controller->add($resource);
+        $this->controller->add($this->resource);
     }
 
     public function testEdit()
     {
-        $resource = 'test';
         $id = 1;
 
         $operationController = $this->prophesize(IOperatAbleController::class);
         $operationController->edit(Argument::exact($id))->shouldBeCalledTimes(1);
-
         $this->controller->expects($this->once())
                          ->method('getController')
-                         ->with($resource)
+                         ->with($this->resource)
                          ->willReturn($operationController->reveal());
 
-        $this->controller->edit($resource, $id);
+        $this->controller->edit($this->resource, $id);
     }
 }

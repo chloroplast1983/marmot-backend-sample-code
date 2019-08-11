@@ -1,10 +1,10 @@
 <?php
 namespace News\Adapter\News\Query;
 
+use PHPUnit\Framework\TestCase;
+
 use Marmot\Framework\Interfaces\DbLayer;
 use Marmot\Framework\Interfaces\CacheLayer;
-
-use PHPUnit\Framework\TestCase;
 
 class NewsRowCacheQueryTest extends TestCase
 {

@@ -1,10 +1,10 @@
 <?php
 namespace Common\CommandHandler;
 
+use PHPUnit\Framework\TestCase;
+
 use Common\Model\IEnableAble;
 use Common\Command\DisableCommand;
-
-use PHPUnit\Framework\TestCase;
 
 class DisableCommandHandlerTest extends TestCase
 {
@@ -13,8 +13,8 @@ class DisableCommandHandlerTest extends TestCase
     public function setUp()
     {
         $this->stub = $this->getMockBuilder(DisableCommandHandler::class)
-            ->setMethods(['fetchIEnableObject'])
-            ->getMockForAbstractClass();
+                    ->setMethods(['fetchIEnableObject'])
+                    ->getMockForAbstractClass();
     }
 
     public function tearDown()
@@ -36,12 +36,10 @@ class DisableCommandHandlerTest extends TestCase
 
         $command = new class($id) extends DisableCommand
         {
-
         };
 
         $disableAble = $this->prophesize(IEnableAble::class);
         $disableAble->disable()->shouldBeCalledTimes(1)->willReturn(true);
-
         $this->stub->expects($this->exactly(1))
             ->method('fetchIEnableObject')
             ->with($id)

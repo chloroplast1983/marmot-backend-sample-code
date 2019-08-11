@@ -7,7 +7,8 @@ use Common\Controller\Interfaces\IFetchAbleController;
 class FetchControllerFactory
 {
     const MAPS = array(
-        'news'=>'\News\Controller\FetchController'
+        'news'=>'\News\Controller\FetchController',
+        'userGroups'=>'\UserGroup\Controller\FetchController'
     );
 
     public static function getFetchController(string $resource) : IFetchAbleController

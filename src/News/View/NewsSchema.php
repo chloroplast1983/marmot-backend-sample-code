@@ -2,7 +2,6 @@
 namespace News\View;
 
 use Neomerx\JsonApi\Schema\SchemaProvider;
-use News\Model\News;
 
 /**
  * @codeCoverageIgnore

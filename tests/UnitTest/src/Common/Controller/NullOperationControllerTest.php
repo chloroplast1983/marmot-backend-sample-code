@@ -1,11 +1,9 @@
 <?php
 namespace Common\Controller;
 
-use PHPUnit\Framework\TestCase;
-
 use Marmot\Core;
 
-use Common\Controller\Interfaces\IOperatAbleController;
+use PHPUnit\Framework\TestCase;
 
 class NullOperationControllerTest extends TestCase
 {

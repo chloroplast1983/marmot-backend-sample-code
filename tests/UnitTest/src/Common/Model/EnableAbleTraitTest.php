@@ -27,6 +27,7 @@ class EnableAbleTraitTest extends TestCase
     public function testSetStatus($actural, $expected)
     {
         $this->trait->setStatus($actural);
+        
         $result = $this->trait->getStatus();
         $this->assertEquals($expected, $result);
     }

@@ -12,79 +12,78 @@ class FetchControllerTest extends TestCase
 
     private $childController;
 
+    private $resource;
+
     public function setUp()
     {
         $this->controller = $this->getMockBuilder(FetchController::class)
                                  ->setMethods(['getFetchController'])
                                  ->getMock();
 
-        $this->childController = new class extends FetchController{
+        $this->childController = new class extends FetchController
+        {
             public function getFetchController(string $resource) : IFetchAbleController
             {
                 return parent::getFetchController($resource);
             }
         };
+
+        $this->resource = 'tests';
     }
 
     public function tearDown()
     {
         unset($this->controller);
         unset($this->childController);
+        unset($this->resource);
     }
 
     public function testGetFetchController()
     {
-        $resource = 'services';
         $this->assertInstanceOf(
             'Common\Controller\Interfaces\IFetchAbleController',
-            $this->childController->getFetchController($resource)
+            $this->childController->getFetchController($this->resource)
         );
     }
 
     public function testFilter()
     {
-        $resource = 'test';
-
         $fetchController = $this->prophesize(IFetchAbleController::class);
         $fetchController->filter()->shouldBeCalledTimes(1);
 
         $this->controller->expects($this->once())
                          ->method('getFetchController')
-                         ->with($resource)
+                         ->with($this->resource)
                          ->willReturn($fetchController->reveal());
 
-        $this->controller->filter($resource);
+        $this->controller->filter($this->resource);
     }
 
     public function testFetchList()
     {
-        $resource = 'test';
         $ids = '1,2';
 
         $fetchController = $this->prophesize(IFetchAbleController::class);
         $fetchController->fetchList(Argument::exact($ids))->shouldBeCalledTimes(1);
-
         $this->controller->expects($this->once())
                          ->method('getFetchController')
-                         ->with($resource)
+                         ->with($this->resource)
                          ->willReturn($fetchController->reveal());
 
-        $this->controller->fetchList($resource, $ids);
+        $this->controller->fetchList($this->resource, $ids);
     }
 
     public function testFetchOne()
     {
-        $resource = 'test';
         $id = 1;
 
         $fetchController = $this->prophesize(IFetchAbleController::class);
         $fetchController->fetchOne(Argument::exact($id))->shouldBeCalledTimes(1);
-
         $this->controller->expects($this->once())
                          ->method('getFetchController')
-                         ->with($resource)
+                         ->with($this->resource)
                          ->willReturn($fetchController->reveal());
 
-        $this->controller->fetchOne($resource, $id);
+        $this->controller->fetchOne($this->resource, $id);
     }
 }

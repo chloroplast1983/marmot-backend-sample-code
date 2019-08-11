@@ -5,8 +5,6 @@ use Marmot\Core;
 use Marmot\Common\Model\Object;
 use Marmot\Common\Model\IObject;
 
-use UserGroup\Repository\UserGroup\UserGroupRepository;
-
 class UserGroup implements IObject
 {
     use Object;
@@ -24,6 +22,7 @@ class UserGroup implements IObject
         $this->name = '';
         $this->status = self::STATUS_NORMAL;
         $this->updateTime = Core::$container->get('time');
+        $this->createTime = Core::$container->get('time');
         $this->statusTime = 0;
     }
 
@@ -31,9 +30,9 @@ class UserGroup implements IObject
     {
         unset($this->id);
         unset($this->name);
-        unset($this->createTime);
         unset($this->status);
         unset($this->updateTime);
+        unset($this->createTime);
         unset($this->statusTime);
     }
 

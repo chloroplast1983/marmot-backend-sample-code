@@ -3,6 +3,7 @@ namespace News\Controller;
 
 use Prophecy\Argument;
 use PHPUnit\Framework\TestCase;
+
 use Marmot\Framework\Classes\CommandBus;
 
 use News\Utils\ObjectGenerate;
@@ -17,10 +18,7 @@ class EnableControllerTest extends TestCase
     public function setUp()
     {
         $this->stub = $this->getMockBuilder(TestEnableController::class)
-        ->setMethods([
-            'displayError',
-            ])
-        ->getMock();
+                    ->setMethods(['displayError',])->getMock();
     }
 
     public function teatDown()

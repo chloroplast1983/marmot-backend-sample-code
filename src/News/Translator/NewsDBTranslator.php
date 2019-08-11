@@ -112,9 +112,6 @@ class NewsDBTranslator implements ITranslator
         if (in_array('content', $keys)) {
             $expression['content'] = $news->getContent()->getId();
         }
-        // if (in_array('contentArray', $keys)) {
-        //     $expression['content_array'] = $news->getContent()->getData();
-        // }
         if (in_array('publishUserGroup', $keys)) {
             $expression['publish_usergroup'] = $news->getPublishUserGroup()->getId();
         }

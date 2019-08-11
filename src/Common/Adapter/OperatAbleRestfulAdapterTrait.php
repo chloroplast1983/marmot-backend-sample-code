@@ -44,6 +44,7 @@ trait OperatAbleRestfulAdapterTrait
         $info = $this->getDBTranslator()->objectToArray($operatAbleObject, $keys);
 
         $result = $this->getRowCacheQuery()->update($info, $conditionArray);
+        
         if (!$result) {
             return false;
         }

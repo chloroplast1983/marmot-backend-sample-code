@@ -1,8 +1,6 @@
 <?php
 namespace Common\Model;
 
-use Marmot\Core;
-
 use PHPUnit\Framework\TestCase;
 
 class NullEnableAbleTraitTest extends TestCase
@@ -24,6 +22,7 @@ class NullEnableAbleTraitTest extends TestCase
     public function testEnable()
     {
         $this->mockResourceNotExist();
+
         $result = $this->trait->enable();
         $this->assertFalse($result);
     }
@@ -31,6 +30,7 @@ class NullEnableAbleTraitTest extends TestCase
     public function testDsiable()
     {
         $this->mockResourceNotExist();
+
         $result = $this->trait->disable();
         $this->assertFalse($result);
     }
@@ -38,6 +38,7 @@ class NullEnableAbleTraitTest extends TestCase
     public function testUpdateStatus()
     {
         $this->mockResourceNotExist();
+
         $result = $this->trait->publicUpdateStatus(0);
         $this->assertFalse($result);
     }
@@ -45,6 +46,7 @@ class NullEnableAbleTraitTest extends TestCase
     public function testIsEnabled()
     {
         $this->mockResourceNotExist();
+
         $result = $this->trait->isEnabled();
         $this->assertFalse($result);
     }
@@ -52,6 +54,7 @@ class NullEnableAbleTraitTest extends TestCase
     public function testIsDisabled()
     {
         $this->mockResourceNotExist();
+        
         $result = $this->trait->isDisabled();
         $this->assertFalse($result);
     }

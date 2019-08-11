@@ -205,8 +205,8 @@ class NewsTest extends TestCase
     public function testAddActionFailure()
     {
         $this->stub = $this->getMockBuilder(TestNews::class)
-            ->setMethods(['getContentDocumentAdapter'])
-            ->getMock();
+                    ->setMethods(['getContentDocumentAdapter'])
+                    ->getMock();
 
         $this->initialContentDocument(false);
 
@@ -218,8 +218,8 @@ class NewsTest extends TestCase
     public function testAddActionSuccess()
     {
         $this->stub = $this->getMockBuilder(TestNews::class)
-            ->setMethods(['getRepository', 'getContentDocumentAdapter'])
-            ->getMock();
+                    ->setMethods(['getRepository', 'getContentDocumentAdapter'])
+                    ->getMock();
 
         $this->initialContentDocument(true);
         
@@ -239,8 +239,8 @@ class NewsTest extends TestCase
     public function testEditActionFailure()
     {
         $this->stub = $this->getMockBuilder(TestNews::class)
-            ->setMethods(['getContentDocumentAdapter'])
-            ->getMock();
+                    ->setMethods(['getContentDocumentAdapter'])
+                    ->getMock();
 
         $this->initialContentDocument(false);
 
@@ -252,8 +252,8 @@ class NewsTest extends TestCase
     public function testEditActionSuccess()
     {
         $this->stub = $this->getMockBuilder(TestNews::class)
-            ->setMethods(['getRepository', 'getContentDocumentAdapter'])
-            ->getMock();
+                    ->setMethods(['getRepository', 'getContentDocumentAdapter'])
+                    ->getMock();
 
         $this->initialContentDocument(true);
         

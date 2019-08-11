@@ -1,8 +1,6 @@
 <?php
 namespace Common\Model;
 
-use Marmot\Core;
-
 use PHPUnit\Framework\TestCase;
 
 class OperatAbleTraitTest extends TestCase

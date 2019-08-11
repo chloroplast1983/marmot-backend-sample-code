@@ -21,8 +21,8 @@ class UserGroupDBAdapterTest extends TestCase
     public function setUp()
     {
         $this->adapter = $this->getMockBuilder(TestUserGroupDBAdapter::class)
-        ->setMethods(['formatSort'])
-        ->getMock();
+                        ->setMethods(['formatSort'])
+                        ->getMock();
 
         $this->translator = $this->prophesize(UserGroupDBTranslator::class);
         $this->rowCacheQuery = $this->prophesize(UserGroupRowCacheQuery::class);

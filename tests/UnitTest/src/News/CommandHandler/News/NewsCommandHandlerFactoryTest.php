@@ -3,12 +3,10 @@ namespace News\CommandHandler\News;
 
 use PHPUnit\Framework\TestCase;
 
-use Marmot\Framework\Interfaces\ICommand;
-
 use News\Command\News\AddNewsCommand;
 use News\Command\News\EditNewsCommand;
-use News\Command\News\DisableNewsCommand;
 use News\Command\News\EnableNewsCommand;
+use News\Command\News\DisableNewsCommand;
 
 class NewsCommandHandlerFactoryTest extends TestCase
 {

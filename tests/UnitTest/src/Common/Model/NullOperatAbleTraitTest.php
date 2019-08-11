@@ -1,8 +1,6 @@
 <?php
 namespace Common\Model;
 
-use Marmot\Core;
-
 use PHPUnit\Framework\TestCase;
 
 class NullOperatAbleTraitTest extends TestCase
@@ -24,6 +22,7 @@ class NullOperatAbleTraitTest extends TestCase
     public function testAdd()
     {
         $this->mockResourceNotExist();
+
         $result = $this->trait->add();
         $this->assertFalse($result);
     }
@@ -31,6 +30,7 @@ class NullOperatAbleTraitTest extends TestCase
     public function testEdit()
     {
         $this->mockResourceNotExist();
+
         $result = $this->trait->edit();
         $this->assertFalse($result);
     }
@@ -38,13 +38,15 @@ class NullOperatAbleTraitTest extends TestCase
     public function testAddAction()
     {
         $this->mockResourceNotExist();
-        $result = $this->trait->addAction(0);
+
+        $result = $this->trait->addAction();
         $this->assertFalse($result);
     }
 
     public function testEditAction()
     {
         $this->mockResourceNotExist();
+
         $result = $this->trait->editAction();
         $this->assertFalse($result);
     }

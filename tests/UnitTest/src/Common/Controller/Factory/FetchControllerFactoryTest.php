@@ -16,4 +16,10 @@ class FetchControllerFactoryTest extends TestCase
         $controller = FetchControllerFactory::getFetchController('news');
         $this->assertInstanceOf('News\Controller\FetchController', $controller);
     }
+
+    public function testUserGroupsFetchController()
+    {
+        $controller = FetchControllerFactory::getFetchController('userGroups');
+        $this->assertInstanceOf('UserGroup\Controller\FetchController', $controller);
+    }
 }

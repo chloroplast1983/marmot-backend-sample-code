@@ -3,8 +3,8 @@ namespace News\Adapter\News;
 
 use Marmot\Core;
 
-use Common\Adapter\OperatAbleRestfulAdapterTrait;
 use Common\Adapter\FetchRestfulAdapterTrait;
+use Common\Adapter\OperatAbleRestfulAdapterTrait;
 
 use News\Model\News;
 use News\Model\NullNews;

@@ -6,7 +6,6 @@ use News\Adapter\News\INewsAdapter;
 use News\Adapter\News\NewsDBAdapter;
 use News\Adapter\News\NewsMockAdapter;
 
-use Marmot\Core;
 use Marmot\Framework\Classes\Repository;
 
 use Common\Repository\OperatAbleRepositoryTrait;

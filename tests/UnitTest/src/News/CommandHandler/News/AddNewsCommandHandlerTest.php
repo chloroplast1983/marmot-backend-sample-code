@@ -10,7 +10,6 @@ use News\Model\News;
 use News\Model\ContentDocument;
 use News\Command\News\AddNewsCommand;
 
-use UserGroup\Model\UserGroup;
 use UserGroup\Repository\UserGroup\UserGroupRepository;
 
 class AddNewsCommandHandlerTest extends TestCase
@@ -29,10 +28,12 @@ class AddNewsCommandHandlerTest extends TestCase
             {
                 return parent::getNews();
             }
+
             public function getUserGroupRepository() : UserGroupRepository
             {
                 return parent::getUserGroupRepository();
             }
+
             public function getContentDocument() : ContentDocument
             {
                 return parent::getContentDocument();
@@ -131,7 +132,6 @@ class AddNewsCommandHandlerTest extends TestCase
                    ->willReturn($contentDocument->reveal());
 
         $news = $this->prophesize(News::class);
-
         $news->setTitle(Argument::exact($title))->shouldBeCalledTimes(1);
         $news->setSource(Argument::exact($source))->shouldBeCalledTimes(1);
         $news->setImage(Argument::exact($image))->shouldBeCalledTimes(1);

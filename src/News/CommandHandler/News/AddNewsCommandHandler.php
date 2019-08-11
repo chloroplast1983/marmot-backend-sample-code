@@ -59,13 +59,12 @@ class AddNewsCommandHandler implements ICommandHandler
             throw new \InvalidArgumentException;
         }
 
-        $news = $this->getNews();
-
         $userGroup = $this->fetchUserGroup($command->publishUserGroupId);
 
         $contentDocument = $this->getContentDocument();
         $contentDocument->setData(array('content'=>$command->content));
 
+        $news = $this->getNews();
         $news->setTitle($command->title);
         $news->setSource($command->source);
         $news->setImage($command->image);

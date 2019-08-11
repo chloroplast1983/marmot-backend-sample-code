@@ -1,9 +1,6 @@
 <?php
 namespace UserGroup\Model;
 
-use Marmot\Core;
-
-use Prophecy\Argument;
 use PHPUnit\Framework\TestCase;
 
 class UserGroupTest extends TestCase

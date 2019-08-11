@@ -9,8 +9,8 @@ class DocumentTest extends TestCase
 
     public function setUp()
     {
-        $this->stub = $this->getMockBuilder('Common\Model\Document')
-                      ->getMockForAbstractClass();
+        $this->stub = $this->getMockBuilder(Document::class)
+                    ->getMockForAbstractClass();
     }
 
     public function tearDown()

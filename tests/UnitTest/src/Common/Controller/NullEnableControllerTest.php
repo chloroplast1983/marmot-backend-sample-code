@@ -2,9 +2,8 @@
 namespace Common\Controller;
 
 use Marmot\Core;
-use PHPUnit\Framework\TestCase;
 
-use Common\Controller\Interfaces\IEnableAbleController;
+use PHPUnit\Framework\TestCase;
 
 class NullEnableControllerTest extends TestCase
 {

@@ -1,10 +1,8 @@
 <?php
 namespace Common\Repository;
 
-use Marmot\Core;
-
-use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use PHPUnit\Framework\TestCase;
 
 use News\Adapter\News\NewsDBAdapter;
 
@@ -26,12 +24,11 @@ class OperatAbleRepositoryTraitTest extends TestCase
 
     public function testAdd()
     {
-        $news = \News\Utils\ObjectGenerate::generateNews(1);
         $keys = array();
+        $news = \News\Utils\ObjectGenerate::generateNews(1);
 
         $adapter = $this->prophesize(NewsDBAdapter::class);
         $adapter->add(Argument::exact($news), Argument::exact($keys))->shouldBeCalledTimes(1)->willReturn(true);
-
         $this->trait->expects($this->exactly(1))
             ->method('getAdapter')
             ->willReturn($adapter->reveal());
@@ -42,12 +39,11 @@ class OperatAbleRepositoryTraitTest extends TestCase
 
     public function testEdit()
     {
-        $news = \News\Utils\ObjectGenerate::generateNews(1);
         $keys = array();
+        $news = \News\Utils\ObjectGenerate::generateNews(1);
 
         $adapter = $this->prophesize(NewsDBAdapter::class);
         $adapter->edit(Argument::exact($news), Argument::exact($keys))->shouldBeCalledTimes(1)->willReturn(true);
-
         $this->trait->expects($this->exactly(1))
             ->method('getAdapter')
             ->willReturn($adapter->reveal());

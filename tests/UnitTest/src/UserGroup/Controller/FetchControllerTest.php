@@ -1,13 +1,13 @@
 <?php
-namespace News\Controller;
+namespace UserGroup\Controller;
 
 use PHPUnit\Framework\TestCase;
 
 use Utility\ControllerTestCase;
 
-use News\Model\NullNews;
-use News\Utils\ObjectGenerate;
-use News\Repository\News\NewsRepository;
+use UserGroup\Model\NullUserGroup;
+use UserGroup\Utils\ObjectGenerate;
+use UserGroup\Repository\UserGroup\UserGroupRepository;
 
 class FetchControllerTest extends ControllerTestCase
 {
@@ -19,7 +19,7 @@ class FetchControllerTest extends ControllerTestCase
 
         $this->childStub = new class extends FetchController
         {
-            public function getRepository() : NewsRepository
+            public function getRepository() : UserGroupRepository
             {
                 return parent::getRepository();
             }
@@ -34,97 +34,97 @@ class FetchControllerTest extends ControllerTestCase
     public function testGetRepository()
     {
         $this->assertInstanceOf(
-            'News\Repository\News\NewsRepository',
+            'UserGroup\Repository\UserGroup\UserGroupRepository',
             $this->childStub->getRepository()
         );
     }
 
     public function testFetchOneSuccess()
     {
-        $news = ObjectGenerate::generateNews(1);
+        $userGroup = ObjectGenerate::generateUserGroup(1);
 
         $this->fetchOneSuccess(
             [
-                'repository'=>NewsRepository::class,
+                'repository'=>UserGroupRepository::class,
                 'controller'=>FetchController::class
             ],
             'getRepository',
-            $news
+            $userGroup
         );
     }
 
     public function testFetchOneFailure()
     {
-        $news = new NullNews();
+        $userGroup = new NullUserGroup();
 
         $this->fetchOneFailure(
             [
-                'repository'=>NewsRepository::class,
+                'repository'=>UserGroupRepository::class,
                 'controller'=>FetchController::class
             ],
             'getRepository',
-            $news
+            $userGroup
         );
     }
 
     public function testFetchListSuccess()
     {
-        $newsArray = array(
-            ObjectGenerate::generateNews(1)
+        $userGroupArray = array(
+            ObjectGenerate::generateUserGroup(1)
         );
 
         $this->fetchListSuccess(
             [
-                'repository'=>NewsRepository::class,
+                'repository'=>UserGroupRepository::class,
                 'controller'=>FetchController::class
             ],
             'getRepository',
-            $newsArray
+            $userGroupArray
         );
     }
 
     public function testFetchListFailure()
     {
-        $newsArray = array();
+        $userGroupArray = array();
 
         $this->fetchListFailure(
             [
-                'repository'=>NewsRepository::class,
+                'repository'=>UserGroupRepository::class,
                 'controller'=>FetchController::class
             ],
             'getRepository',
-            $newsArray
+            $userGroupArray
         );
     }
 
     public function testFilterSuccess()
     {
-        $newsArray = array(
-            array(ObjectGenerate::generateNews(1)),
+        $userGroupArray = array(
+            array(ObjectGenerate::generateUserGroup(1)),
             1
         );
 
         $this->filterSuccess(
             [
-                'repository'=>NewsRepository::class,
+                'repository'=>UserGroupRepository::class,
                 'controller'=>FetchController::class
             ],
             'getRepository',
-            $newsArray
+            $userGroupArray
         );
     }
 
     public function testFilterFailure()
     {
-        $newsArray = array(array(), 0);
+        $userGroupArray = array(array(), 0);
 
         $this->filterFailure(
             [
-                'repository'=>NewsRepository::class,
+                'repository'=>UserGroupRepository::class,
                 'controller'=>FetchController::class
             ],
             'getRepository',
-            $newsArray
+            $userGroupArray
         );
     }
 }

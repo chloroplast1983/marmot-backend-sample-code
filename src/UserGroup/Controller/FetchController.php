@@ -1,5 +1,5 @@
 <?php
-namespace News\Controller;
+namespace UserGroup\Controller;
 
 use Marmot\Framework\Interfaces\INull;
 use Marmot\Framework\Classes\Controller;
@@ -7,8 +7,8 @@ use Marmot\Framework\Controller\JsonApiTrait;
 
 use Common\Controller\Interfaces\IFetchAbleController;
 
-use News\View\NewsView;
-use News\Repository\News\NewsRepository;
+use UserGroup\View\UserGroupView;
+use UserGroup\Repository\UserGroup\UserGroupRepository;
 
 class FetchController extends Controller implements IFetchAbleController
 {
@@ -19,7 +19,7 @@ class FetchController extends Controller implements IFetchAbleController
     public function __construct()
     {
         parent::__construct();
-        $this->repository = new NewsRepository();
+        $this->repository = new UserGroupRepository();
     }
 
     public function __destruct()
@@ -28,17 +28,17 @@ class FetchController extends Controller implements IFetchAbleController
         unset($this->repository);
     }
 
-    protected function getRepository() : NewsRepository
+    protected function getRepository() : UserGroupRepository
     {
         return $this->repository;
     }
 
     public function fetchOne(int $id)
     {
-        $news = $this->getRepository()->fetchOne($id);
+        $userGroup = $this->getRepository()->fetchOne($id);
 
-        if (!$news instanceof INull) {
-            $this->renderView(new NewsView($news));
+        if (!$userGroup instanceof INull) {
+            $this->renderView(new UserGroupView($userGroup));
             return true;
         }
 
@@ -50,12 +50,12 @@ class FetchController extends Controller implements IFetchAbleController
     {
         $ids = explode(',', $ids);
 
-        $newsList = array();
+        $userGroupList = array();
 
-        $newsList = $this->getRepository()->fetchList($ids);
+        $userGroupList = $this->getRepository()->fetchList($ids);
 
-        if (!empty($newsList)) {
-            $this->renderView(new NewsView($newsList));
+        if (!empty($userGroupList)) {
+            $this->renderView(new UserGroupView($userGroupList));
             return true;
         }
 
@@ -67,7 +67,7 @@ class FetchController extends Controller implements IFetchAbleController
     {
         list($filter, $sort, $curpage, $perpage) = $this->formatParameters();
 
-        list($newsList, $count) = $this->getRepository()->filter(
+        list($userGroupList, $count) = $this->getRepository()->filter(
             $filter,
             $sort,
             ($curpage-1)*$perpage,
@@ -75,9 +75,9 @@ class FetchController extends Controller implements IFetchAbleController
         );
 
         if ($count > 0) {
-            $view = new NewsView($newsList);
+            $view = new UserGroupView($userGroupList);
             $view->pagination(
-                'news',
+                'userGroup',
                 $this->getRequest()->get(),
                 $count,
                 $perpage,

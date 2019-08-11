@@ -8,32 +8,6 @@ use UserGroup\Adapter\UserGroup\Query\UserGroupRowCacheQuery;
 
 class UserGroupMockAdapter implements IUserGroupAdapter
 {
-    private $translator;
-
-    private $rowCacheQuery;
-
-    public function __construct()
-    {
-        $this->translator = new UserGroupDBTranslator();
-        $this->rowCacheQuery = new UserGroupRowCacheQuery();
-    }
-
-    public function __destruct()
-    {
-        unset($this->translator);
-        unset($this->rowCacheQuery);
-    }
-    
-    protected function getDBTranslator() : UserGroupDBTranslator
-    {
-        return $this->translator;
-    }
-    
-    protected function getRowCacheQuery() : UserGroupRowCacheQuery
-    {
-        return $this->rowCacheQuery;
-    }
-    
     public function fetchOne($id) : UserGroup
     {
         return ObjectGenerate::generateUserGroup($id);

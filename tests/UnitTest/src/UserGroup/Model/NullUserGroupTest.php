@@ -1,8 +1,6 @@
 <?php
 namespace UserGroup\Model;
 
-use Marmot\Core;
-
 use PHPUnit\Framework\TestCase;
 
 class NullUserGroupTest extends TestCase

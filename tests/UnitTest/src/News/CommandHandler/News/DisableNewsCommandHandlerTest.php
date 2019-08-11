@@ -28,9 +28,7 @@ class DisableNewsCommandHandlerTest extends TestCase
     public function testFetchIEnableObject()
     {
         $this->stub = $this->getMockBuilder(TestDisableNewsCommandHandler::class)
-                           ->setMethods([
-                               'fetchNews'
-                            ])->getMock();
+                           ->setMethods(['fetchNews'])->getMock();
 
         $id = 1;
         $news = \News\Utils\ObjectGenerate::generateNews($id);
