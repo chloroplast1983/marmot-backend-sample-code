@@ -1,29 +1,133 @@
 <?php
 
 return array(
-    USER_OLD_PASSWORD_NOT_CORRECT=>
+    PARAMETER_IS_EMPTY=>
         array(
-            'id'=>USER_OLD_PASSWORD_NOT_CORRECT,
+            'id'=>PARAMETER_IS_EMPTY,
             'link'=>'',
             'status'=>403,
-            'code'=> USER_OLD_PASSWORD_NOT_CORRECT,
-            'title'=>'user old password not correct',
-            'detail'=>'user old password not correct',
+            'code'=>'PARAMETER_IS_EMPTY',
+            'title'=>'数据不能为空',
+            'detail'=>'表述传输了一个空数据,但是该数据不能为空.',
             'source'=>array(
-                
+                'pointer'=>''
             ),
             'meta'=>array()
         ),
-    USER_IDENTIFY_DUPLICATE=>
+    PARAMETER_IS_UNIQUE=>
         array(
-            'id'=>USER_IDENTIFY_DUPLICATE,
+            'id'=>PARAMETER_IS_UNIQUE,
             'link'=>'',
             'status'=>409,
-            'code'=> USER_IDENTIFY_DUPLICATE,
-            'title'=>'user identify duplicate',
-            'detail'=>'user cellphone duplicate',
+            'code'=>'PARAMETER_IS_UNIQUE',
+            'title'=>'数据重复',
+            'detail'=>'表述传输了一个已经存在的数据,但是该数据不能重复.',
             'source'=>array(
-                'pointer'=>'/data/attributes/cellPhone'
+                'pointer'=>''
+            ),
+            'meta'=>array()
+        ),
+     PARAMETER_FORMAT_ERROR=>
+        array(
+            'id'=>PARAMETER_FORMAT_ERROR,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'PARAMETER_FORMAT_ERROR',
+            'title'=>'数据格式不正确',
+            'detail'=>'表述传输了一个格式不正确的字段.',
+            'source'=>array(
+                'pointer'=>''
+            ),
+            'meta'=>array()
+        ),
+    RESOURCE_STATUS_DISABLED=>
+        array(
+            'id'=>RESOURCE_STATUS_DISABLED,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'RESOURCE_STATUS_DISABLED',
+            'title'=>'状态已禁用',
+            'detail'=>'表述该资源状态已禁用.',
+            'source'=>array(
+                'pointer'=>'status'
+            ),
+            'meta'=>array()
+        ),
+     RESOURCE_STATUS_ENABLED=>
+        array(
+            'id'=>RESOURCE_STATUS_ENABLED,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'RESOURCE_STATUS_ENABLED',
+            'title'=>'状态已启用',
+            'detail'=>'表述该资源状态已启用.',
+            'source'=>array(
+                'pointer'=>'status'
+            ),
+            'meta'=>array()
+        ),
+    TITLE_FORMAT_ERROR=>
+        array(
+            'id'=>TITLE_FORMAT_ERROR,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'TITLE_FORMAT_ERROR',
+            'title'=>'标题格式不正确',
+            'detail'=>'标题格式错误，长度范围应为1-50位',
+            'source'=>array(
+                'pointer'=>''
+            ),
+            'meta'=>array()
+        ),
+    IMAGE_FORMAT_ERROR=>
+        array(
+            'id'=>IMAGE_FORMAT_ERROR,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'IMAGE_FORMAT_ERROR',
+            'title'=>'图片格式错误',
+            'detail'=>'图片格式错误，正确格式为jpg,png,jpeg',
+            'source'=>array(
+                'pointer'=>'image'
+            ),
+            'meta'=>array()
+        ),
+    ATTACHMENT_FORMAT_ERROR=>
+        array(
+            'id'=>ATTACHMENT_FORMAT_ERROR,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'ATTACHMENT_FORMAT_ERROR',
+            'title'=>'附件格式错误',
+            'detail'=>'附件格式错误，正确格式为zip, doc, docx，xls, xlsx，pdf',
+            'source'=>array(
+                'pointer'=>'attachments'
+            ),
+            'meta'=>array()
+        ),
+    NEWS_SOURCE_FORMAT_ERROR=>
+        array(
+            'id'=>NEWS_SOURCE_FORMAT_ERROR,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'NEWS_SOURCE_FORMAT_ERROR',
+            'title'=>'新闻来源格式不正确',
+            'detail'=>'新闻来源格式不正确',
+            'source'=>array(
+                'pointer'=>'source'
+            ),
+            'meta'=>array()
+        ),
+    NEWS_CONTENT_FORMAT_ERROR=>
+        array(
+            'id'=>NEWS_CONTENT_FORMAT_ERROR,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'NEWS_CONTENT_FORMAT_ERROR',
+            'title'=>'新闻内容格式不正确',
+            'detail'=>'新闻内容格式不正确',
+            'source'=>array(
+                'pointer'=>'content'
             ),
             'meta'=>array()
         ),

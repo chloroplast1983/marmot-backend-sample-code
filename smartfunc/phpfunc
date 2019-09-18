@@ -13,7 +13,7 @@ function composer {
 }
 
 function cpd {
-	docker exec $1 vendor/bin/phpcpd --names-exclude templateDefine.php Application
+	docker exec $1 vendor/bin/phpcpd --names-exclude templateDefine.php src
 }
 
 function unit {
@@ -33,7 +33,7 @@ function unitFileCover {
 }
 
 function md {
-	docker exec -i $1 vendor/bin/phpmd ./Application text ruleset.xml
+	docker exec -i $1 vendor/bin/phpmd ./src text ruleset.xml
 	if [ $? -eq 0 ]
 	then
 		echo 'check mess complete'
