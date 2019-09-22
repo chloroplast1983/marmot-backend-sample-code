@@ -28,19 +28,26 @@
 
 **内容** 新闻内容的表述.
 
-* ContentDocument
+* string
 
 ### image
 
 **图片** 新闻图片的表述.
 
-* array
+* array，如 `array("name" => "图片名称", "identify" => "图片标识")`
 
 ### attachments
 
 **附件** 新闻附件的表述.
 
-* array
+* array，如 
+
+```
+array(
+	array("name" => "图片名称", "identify" => "图片标识"),
+	array("name" => "图片名称", "identify" => "图片标识")
+)
+```
 
 ### status
 
@@ -48,8 +55,8 @@
 
 * int
 
-	* STATUS_ENABLE | 启用 | 0
-	* STATUS_DISABLE | 禁用 | -2
+	* ENABLED | 启用 | 0
+	* DISABLED | 禁用 | -2
 
 ### [更新时间](./common.md "更新时间")
 

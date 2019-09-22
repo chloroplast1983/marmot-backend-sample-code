@@ -36,8 +36,8 @@
 	* [通用字典](./Docs/Dictionary/common.md "通用字典")
 * 新闻字典 `news`
 	* [新闻字典](./Docs/Dictionary/news.md "新闻字典")
-* 委办局字典 `UserGroup`
-	* [委办局字典](./Docs/Dictionary/UserGroup.md "委办局字典")
+* 委办局字典 `userGroup`
+	* [委办局字典](./Docs/Dictionary/userGroup.md "委办局字典")
 	
 ---
 
@@ -63,6 +63,8 @@
 
 * 新闻 `news`
 	* [新闻](./Docs/Api/newsApi.md "新闻")
+* 委办局 `userGroup`
+	* [委办局](./Docs/Api/userGroupApi.md "委办局")
 
 ---
 

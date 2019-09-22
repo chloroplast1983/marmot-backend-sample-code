@@ -10,7 +10,6 @@ class UserGroup implements IObject
     use Object;
 
     const STATUS_NORMAL = 0;
-    const STATUS_DELETE = -2;
 
     private $id;
 
@@ -58,12 +57,6 @@ class UserGroup implements IObject
 
     public function setStatus(int $status) : void
     {
-        $this->status= in_array(
-            $status,
-            array(
-                self::STATUS_NORMAL,
-                self::STATUS_DELETE
-            )
-        ) ? $status : self::STATUS_NORMAL;
+        $this->status= $status;
     }
 }

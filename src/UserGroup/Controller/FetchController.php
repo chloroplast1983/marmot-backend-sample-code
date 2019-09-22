@@ -77,7 +77,7 @@ class FetchController extends Controller implements IFetchAbleController
         if ($count > 0) {
             $view = new UserGroupView($userGroupList);
             $view->pagination(
-                'userGroup',
+                'userGroups',
                 $this->getRequest()->get(),
                 $count,
                 $perpage,

@@ -13,7 +13,7 @@ class HealthzController extends Controller
 
     public function healthz()
     {
-        echo "ok1";
+        echo "Is Healthz";
         return true;
     }
 }

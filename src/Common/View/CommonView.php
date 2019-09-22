@@ -24,6 +24,7 @@ abstract class CommonView implements IView
         $this->rules = array(
             \News\Model\News::class => \News\View\NewsSchema::class,
             \News\Model\NullNews::class => \News\View\NewsSchema::class,
+            
             \UserGroup\Model\UserGroup::class => \UserGroup\View\UserGroupSchema::class,
             \UserGroup\Model\NullUserGroup::class => \UserGroup\View\UserGroupSchema::class,
         );

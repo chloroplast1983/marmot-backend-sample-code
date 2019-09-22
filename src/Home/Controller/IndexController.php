@@ -13,7 +13,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-        var_dump("Hello World Backend Sample Code");
+        echo "Hello World Backend Sample Code";
         return true;
     }
 }

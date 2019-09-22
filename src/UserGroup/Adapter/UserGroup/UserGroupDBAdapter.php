@@ -100,11 +100,6 @@ class UserGroupDBAdapter implements IUserGroupAdapter
 
         if (!empty($sort)) {
             $userGroup = new UserGroup();
-            if (isset($sort['updateTime'])) {
-                $info = $this->getDBTranslator()->objectToArray($userGroup, array('updateTime'));
-                $condition .= $conjection.key($info).' '.($sort['updateTime'] == -1 ? 'DESC' : 'ASC');
-                $conjection = ',';
-            }
             if (isset($sort['id'])) {
                 $info = $this->getDBTranslator()->objectToArray($userGroup, array('id'));
                 $condition .= $conjection.key($info).' '.($sort['id'] == -1 ? 'DESC' : 'ASC');

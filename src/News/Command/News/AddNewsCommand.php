@@ -23,7 +23,7 @@ class AddNewsCommand implements ICommand
         array $image,
         array $attachments,
         string $content,
-        int $publishUserGroupId = 0,
+        int $publishUserGroupId,
         int $id = 0
     ) {
         $this->title = $title;

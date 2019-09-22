@@ -167,14 +167,18 @@ class News implements IEnableAble, IOperatAble, IObject
         }
 
         $this->setUpdateTime(Core::$container->get('time'));
-        return $this->getRepository()->edit($this, array(
-            'title',
-            'source',
-            'image',
-            'attachments',
-            'content',
-            'updateTime'
-        ));
+
+        return $this->getRepository()->edit(
+            $this,
+            array(
+                'title',
+                'source',
+                'image',
+                'attachments',
+                'content',
+                'updateTime'
+            )
+        );
     }
 
     private function addContentToMongo() : bool
@@ -188,10 +192,13 @@ class News implements IEnableAble, IOperatAble, IObject
         $this->setStatusTime(Core::$container->get('time'));
         $this->setUpdateTime(Core::$container->get('time'));
 
-        return $this->getRepository()->edit($this, array(
-                    'statusTime',
-                    'status',
-                    'updateTime'
-                ));
+        return $this->getRepository()->edit(
+            $this,
+            array(
+                'statusTime',
+                'status',
+                'updateTime'
+            )
+        );
     }
 }

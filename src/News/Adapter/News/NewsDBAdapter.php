@@ -62,11 +62,6 @@ class NewsDBAdapter implements INewsAdapter
         return $this->userGroupRepository;
     }
 
-    protected function fetchUserGroup(int $id) : UserGroup
-    {
-        return $this->getUserGroupRepository()->fetchOne($id);
-    }
-
     public function fetchOne($id) : News
     {
         $info = array();
@@ -80,14 +75,11 @@ class NewsDBAdapter implements INewsAdapter
 
         $news = $this->getDBTranslator()->arrayToObject($info);
 
-        if ($news instanceof News) {
+        if (!empty($news->getContent()->getId())) {
             $this->getContentDocumentAdapter()->fetchOne($news->getContent());
         }
 
-        $userGroup = $this->fetchUserGroup($news->getPublishUserGroup()->getId());
-        if (!empty($userGroup)) {
-            $news->setPublishUserGroup($userGroup);
-        }
+        $this->fetchPublishUserGroup($news);
 
         return $news;
     }
@@ -95,7 +87,6 @@ class NewsDBAdapter implements INewsAdapter
     public function fetchList(array $ids) : array
     {
         $newsList = array();
-        $contentDocuments = array();
         
         $newsInfoList = $this->getRowCacheQuery()->getList($ids);
 
@@ -105,32 +96,46 @@ class NewsDBAdapter implements INewsAdapter
         }
 
         $translator = $this->getDBTranslator();
+
         foreach ($newsInfoList as $newsInfo) {
-            $news = $translator->arrayToObject($newsInfo);
-
-            if (!empty($news->getContent()->getId())) {
-                $contentDocuments[] = $news->getContent();
-            }
-
-            $userGroupIds[$news->getId()] = $news->getPublishUserGroup()->getId();
-
-            $newsList[] = $news;
+            $newsList[] = $translator->arrayToObject($newsInfo);
         }
 
-        if (!empty($contentDocuments)) {
-            $this->getContentDocumentAdapter()->fetchList($contentDocuments);
+        $this->fetchPublishUserGroup($newsList);
+        
+        return $newsList;
+    }
+
+    protected function fetchPublishUserGroup($news)
+    {
+        return is_array($news) ?
+        $this->fetchPublishUserGroupByList($news) :
+        $this->fetchPublishUserGroupByObject($news);
+    }
+
+    private function fetchPublishUserGroupByObject(News $news)
+    {
+        $userGroupId = $news->getPublishUserGroup()->getId();
+        $userGroup = $this->getUserGroupRepository()->fetchOne($userGroupId);
+        $news->setPublishUserGroup($userGroup);
+    }
+
+    private function fetchPublishUserGroupByList(array $newsList)
+    {
+        $userGroupIds = array();
+        foreach ($newsList as $news) {
+            $userGroupIds[] = $news->getPublishUserGroup()->getId();
         }
 
         $userGroupList = $this->getUserGroupRepository()->fetchList($userGroupIds);
         if (!empty($userGroupList)) {
             foreach ($newsList as $key => $news) {
-                if (isset($userGroupList[$key])) {
-                    $news->setPublishUserGroup($userGroupList[$key]);
+                if (isset($userGroupList[$key])
+                    && $userGroupList[$key]->getId() == $news->getPublishUserGroup()->getId()) {
+                       $news->setPublishUserGroup($userGroupList[$key]);
                 }
             }
         }
-        
-        return $newsList;
     }
 
     /**

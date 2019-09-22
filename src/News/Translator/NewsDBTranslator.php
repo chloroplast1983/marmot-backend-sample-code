@@ -29,20 +29,10 @@ class NewsDBTranslator implements ITranslator
             $news->setSource($expression['source']);
         }
         if (is_string($expression['image'])) {
-            $news->setImage(
-                json_decode($expression['image'], true)
-            );
-        }
-        if (is_array($expression['image'])) {
-            $news->setImage($expression['image']);
+            $news->setImage(json_decode($expression['image'], true));
         }
         if (is_string($expression['attachments'])) {
-            $news->setAttachments(
-                json_decode($expression['attachments'], true)
-            );
-        }
-        if (is_array($expression['attachments'])) {
-            $news->setAttachments($expression['attachments']);
+            $news->setAttachments(json_decode($expression['attachments'], true));
         }
         if (isset($expression['content'])) {
             $news->getContent()->setId($expression['content']);
@@ -83,7 +73,6 @@ class NewsDBTranslator implements ITranslator
                 'image',
                 'attachments',
                 'content',
-                'contentArray',
                 'publishUserGroup',
                 'createTime',
                 'updateTime',
