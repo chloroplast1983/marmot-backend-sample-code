@@ -1,7 +1,7 @@
 <?php
 namespace News\Command\News;
 
-use Marmot\Framework\Interfaces\ICommand;
+use Marmot\Interfaces\ICommand;
 
 class AddNewsCommand implements ICommand
 {

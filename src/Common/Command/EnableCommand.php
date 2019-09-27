@@ -1,7 +1,7 @@
 <?php
 namespace Common\Command;
 
-use Marmot\Framework\Interfaces\ICommand;
+use Marmot\Interfaces\ICommand;
 
 abstract class EnableCommand implements ICommand
 {

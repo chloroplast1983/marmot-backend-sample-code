@@ -9,13 +9,13 @@ use PHPUnit\Framework\TestCase;
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 
-class InputWidgetRulesTest extends TestCase
+class WidgetRulesTest extends TestCase
 {
     private $stub;
 
     public function setUp()
     {
-        $this->stub = new InputWidgetRules();
+        $this->stub = new WidgetRules();
         Core::setLastError(ERROR_NOT_DEFINED);
     }
 
@@ -49,12 +49,12 @@ class InputWidgetRulesTest extends TestCase
 
         return array(
             array($faker->regexify(
-                '[A-Za-z0-9.%+-]{'.InputWidgetRules::TITLE_MIN_LENGTH.','.InputWidgetRules::TITLE_MAX_LENGTH.'}'
+                '[A-Za-z0-9.%+-]{'.WidgetRules::TITLE_MIN_LENGTH.','.WidgetRules::TITLE_MAX_LENGTH.'}'
             ), true),
             array($faker->regexify(
                 '[A-Za-z0-9.%+-]{'.
-                    (InputWidgetRules::TITLE_MAX_LENGTH + 1 ).','.
-                    (InputWidgetRules::TITLE_MAX_LENGTH + 5 ).
+                    (WidgetRules::TITLE_MAX_LENGTH + 1 ).','.
+                    (WidgetRules::TITLE_MAX_LENGTH + 5 ).
                 '}'
             ), false),
             array('', false),

@@ -24,7 +24,7 @@ class UserGroupDBTranslatorTest extends TestCase
     public function testImplementsITranslator()
     {
         $this->assertInstanceOf(
-            'Marmot\Framework\Interfaces\ITranslator',
+            'Marmot\Interfaces\ITranslator',
             $this->translator
         );
     }

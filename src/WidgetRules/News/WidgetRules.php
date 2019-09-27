@@ -7,7 +7,7 @@ use Marmot\Core;
 
 use News\Model\News;
 
-class InputWidgetRules
+class WidgetRules
 {
     const SOURCE_MIN_LENGTH = 2;
     const SOURCE_MAX_LENGTH = 15;

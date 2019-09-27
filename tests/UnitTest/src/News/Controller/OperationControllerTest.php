@@ -13,8 +13,8 @@ use News\Repository\News\NewsRepository;
 use News\Command\News\AddNewsCommand;
 use News\Command\News\EditNewsCommand;
 
-use WidgetRules\News\InputWidgetRules as NewsInputWidgetRules;
-use WidgetRules\Common\InputWidgetRules as CommonInputWidgetRules;
+use WidgetRules\News\WidgetRules as NewsWidgetRules;
+use WidgetRules\Common\WidgetRules as CommonWidgetRules;
 
 class OperationControllerTest extends TestCase
 {
@@ -56,19 +56,19 @@ class OperationControllerTest extends TestCase
         );
     }
 
-    public function testGetCommonInputWidgetRules()
+    public function testGetCommonWidgetRules()
     {
         $this->assertInstanceOf(
-            'WidgetRules\Common\InputWidgetRules',
-            $this->newsStub->getCommonInputWidgetRules()
+            'WidgetRules\Common\WidgetRules',
+            $this->newsStub->getCommonWidgetRules()
         );
     }
 
-    public function testGetNewsInputWidgetRules()
+    public function testGetNewsWidgetRules()
     {
         $this->assertInstanceOf(
-            'WidgetRules\News\InputWidgetRules',
-            $this->newsStub->getNewsInputWidgetRules()
+            'WidgetRules\News\WidgetRules',
+            $this->newsStub->getNewsWidgetRules()
         );
     }
 
@@ -314,21 +314,21 @@ class OperationControllerTest extends TestCase
     public function testValidateAddScenario($expect, $actual)
     {
         $this->newsStub = $this->getMockBuilder(TestOperationController::class)
-                    ->setMethods(['getCommonInputWidgetRules'])
+                    ->setMethods(['getCommonWidgetRules'])
                     ->getMock();
 
         $publishUserGroupId = $this->faker->randomDigit;
 
-        $commonInputWidgetRules = $this->prophesize(CommonInputWidgetRules::class);
+        $commonWidgetRules = $this->prophesize(CommonWidgetRules::class);
     
-        $commonInputWidgetRules->formatNumeric(
+        $commonWidgetRules->formatNumeric(
             Argument::exact($publishUserGroupId),
             Argument::exact('publishUserGroupId')
         )->shouldBeCalledTimes($expect['publishUserGroupIdCount'])->willReturn($expect['publishUserGroupId']);
 
         $this->newsStub->expects($this->any())
-             ->method('getCommonInputWidgetRules')
-             ->willReturn($commonInputWidgetRules->reveal());
+             ->method('getCommonWidgetRules')
+             ->willReturn($commonWidgetRules->reveal());
 
         $result = $this->newsStub->validateAddScenario($publishUserGroupId);
         $this->assertEquals($actual, $result);
@@ -358,7 +358,7 @@ class OperationControllerTest extends TestCase
     public function testValidateOperateScenario($expect, $actual)
     {
         $this->newsStub = $this->getMockBuilder(TestOperationController::class)
-                    ->setMethods(['getCommonInputWidgetRules', 'getNewsInputWidgetRules'])
+                    ->setMethods(['getCommonWidgetRules', 'getNewsWidgetRules'])
                     ->getMock();
 
         $title = $this->faker->title;
@@ -367,36 +367,36 @@ class OperationControllerTest extends TestCase
         $attachments = array($this->faker->title);
         $content = $this->faker->title;
 
-        $commonInputWidgetRules = $this->prophesize(CommonInputWidgetRules::class);
-        $newsInputWidgetRules = $this->prophesize(NewsInputWidgetRules::class);
+        $commonWidgetRules = $this->prophesize(CommonWidgetRules::class);
+        $newsWidgetRules = $this->prophesize(NewsWidgetRules::class);
     
-        $commonInputWidgetRules->title(Argument::exact($title))
+        $commonWidgetRules->title(Argument::exact($title))
                          ->shouldBeCalledTimes($expect['titleCount'])
                          ->willReturn($expect['title']);
 
-        $newsInputWidgetRules->source(Argument::exact($source))
+        $newsWidgetRules->source(Argument::exact($source))
                          ->shouldBeCalledTimes($expect['sourceCount'])
                          ->willReturn($expect['source']);
 
-        $commonInputWidgetRules->image(Argument::exact($image), Argument::exact('image'))
+        $commonWidgetRules->image(Argument::exact($image), Argument::exact('image'))
                          ->shouldBeCalledTimes($expect['imageCount'])
                          ->willReturn($expect['image']);
 
-        $commonInputWidgetRules->attachments(Argument::exact($attachments), Argument::exact('attachments'))
+        $commonWidgetRules->attachments(Argument::exact($attachments), Argument::exact('attachments'))
                          ->shouldBeCalledTimes($expect['attachmentsCount'])
                          ->willReturn($expect['attachments']);
 
-        $newsInputWidgetRules->content(Argument::exact($content))
+        $newsWidgetRules->content(Argument::exact($content))
                          ->shouldBeCalledTimes($expect['contentCount'])
                          ->willReturn($expect['content']);
 
         $this->newsStub->expects($this->any())
-             ->method('getCommonInputWidgetRules')
-             ->willReturn($commonInputWidgetRules->reveal());
+             ->method('getCommonWidgetRules')
+             ->willReturn($commonWidgetRules->reveal());
 
         $this->newsStub->expects($this->any())
-             ->method('getNewsInputWidgetRules')
-             ->willReturn($newsInputWidgetRules->reveal());
+             ->method('getNewsWidgetRules')
+             ->willReturn($newsWidgetRules->reveal());
 
         $result = $this->newsStub->validateOperateScenario(
             $title,

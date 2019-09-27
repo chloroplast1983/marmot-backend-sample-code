@@ -24,6 +24,6 @@ class NullNewsTest extends TestCase
 
     public function testImplementsNull()
     {
-        $this->assertInstanceof('Marmot\Framework\Interfaces\INull', $this->stub);
+        $this->assertInstanceof('Marmot\Interfaces\INull', $this->stub);
     }
 }

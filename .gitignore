@@ -4,4 +4,3 @@ vendor
 utc
 route.cache
 cache/proxies/*.php
-config.test.php

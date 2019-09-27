@@ -18,6 +18,7 @@ trait NewsUtils
         if (is_array($expectedArray['image'])) {
             $image = $expectedArray['image'];
         }
+
         $this->assertEquals($image, $news->getImage());
         $attachments = array();
 

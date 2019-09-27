@@ -5,8 +5,8 @@ use Marmot\Framework\Classes\CommandBus;
 
 use News\Repository\News\NewsRepository;
 
-use WidgetRules\News\InputWidgetRules as NewsInputWidgetRules;
-use WidgetRules\Common\InputWidgetRules as CommonInputWidgetRules;
+use WidgetRules\News\WidgetRules as NewsWidgetRules;
+use WidgetRules\Common\WidgetRules as CommonWidgetRules;
 
 class TestOperationController extends OperationController
 {
@@ -20,14 +20,14 @@ class TestOperationController extends OperationController
         return parent::getCommandBus();
     }
 
-    public function getCommonInputWidgetRules() : CommonInputWidgetRules
+    public function getCommonWidgetRules() : CommonWidgetRules
     {
-        return parent::getCommonInputWidgetRules();
+        return parent::getCommonWidgetRules();
     }
 
-    public function getNewsInputWidgetRules() : NewsInputWidgetRules
+    public function getNewsWidgetRules() : NewsWidgetRules
     {
-        return parent::getNewsInputWidgetRules();
+        return parent::getNewsWidgetRules();
     }
 
     public function validateAddScenario(

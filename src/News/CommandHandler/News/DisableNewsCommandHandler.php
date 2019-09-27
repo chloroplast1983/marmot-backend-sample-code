@@ -1,7 +1,7 @@
 <?php
 namespace News\CommandHandler\News;
 
-use Marmot\Framework\Interfaces\ICommandHandler;
+use Marmot\Interfaces\ICommandHandler;
 
 use Common\Model\IEnableAble;
 use Common\CommandHandler\DisableCommandHandler;

@@ -1,10 +1,10 @@
 <?php
 namespace News\CommandHandler\News;
 
-use Marmot\Framework\Interfaces\ICommand;
-use Marmot\Framework\Interfaces\ICommandHandler;
+use Marmot\Interfaces\ICommand;
+use Marmot\Interfaces\ICommandHandler;
 use Marmot\Framework\Classes\NullCommandHandler;
-use Marmot\Framework\Interfaces\ICommandHandlerFactory;
+use Marmot\Interfaces\ICommandHandlerFactory;
 
 class NewsCommandHandlerFactory implements ICommandHandlerFactory
 {

@@ -1,7 +1,7 @@
 <?php
 namespace UserGroup\Translator;
 
-use Marmot\Framework\Interfaces\ITranslator;
+use Marmot\Interfaces\ITranslator;
 
 use UserGroup\Model\UserGroup;
 use UserGroup\Model\NullUserGroup;

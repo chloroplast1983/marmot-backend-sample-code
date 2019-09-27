@@ -30,7 +30,7 @@ class NewsCommandHandlerFactoryTest extends TestCase
     public function testCorrectInstanceImplementCommandHandlerFactory()
     {
         $this->assertInstanceOf(
-            'Marmot\Framework\Interfaces\ICommandHandlerFactory',
+            'Marmot\Interfaces\ICommandHandlerFactory',
             $this->commandHandler
         );
     }
@@ -49,7 +49,7 @@ class NewsCommandHandlerFactoryTest extends TestCase
             )
         );
 
-        $this->assertInstanceOf('Marmot\Framework\Interfaces\ICommandHandler', $commandHandler);
+        $this->assertInstanceOf('Marmot\Interfaces\ICommandHandler', $commandHandler);
         $this->assertInstanceOf(
             'News\CommandHandler\News\AddNewsCommandHandler',
             $commandHandler
@@ -69,7 +69,7 @@ class NewsCommandHandlerFactoryTest extends TestCase
             )
         );
         
-        $this->assertInstanceOf('Marmot\Framework\Interfaces\ICommandHandler', $commandHandler);
+        $this->assertInstanceOf('Marmot\Interfaces\ICommandHandler', $commandHandler);
         $this->assertInstanceOf(
             'News\CommandHandler\News\EditNewsCommandHandler',
             $commandHandler
@@ -84,7 +84,7 @@ class NewsCommandHandlerFactoryTest extends TestCase
             )
         );
         
-        $this->assertInstanceOf('Marmot\Framework\Interfaces\ICommandHandler', $commandHandler);
+        $this->assertInstanceOf('Marmot\Interfaces\ICommandHandler', $commandHandler);
         $this->assertInstanceOf(
             'News\CommandHandler\News\DisableNewsCommandHandler',
             $commandHandler
@@ -99,7 +99,7 @@ class NewsCommandHandlerFactoryTest extends TestCase
             )
         );
         
-        $this->assertInstanceOf('Marmot\Framework\Interfaces\ICommandHandler', $commandHandler);
+        $this->assertInstanceOf('Marmot\Interfaces\ICommandHandler', $commandHandler);
         $this->assertInstanceOf(
             'News\CommandHandler\News\EnableNewsCommandHandler',
             $commandHandler

@@ -14,16 +14,16 @@ use News\Command\News\EditNewsCommand;
 use News\Repository\News\NewsRepository;
 use News\CommandHandler\News\NewsCommandHandlerFactory;
 
-use WidgetRules\News\InputWidgetRules as NewsInputWidgetRules;
-use WidgetRules\Common\InputWidgetRules as CommonInputWidgetRules;
+use WidgetRules\News\WidgetRules as NewsWidgetRules;
+use WidgetRules\Common\WidgetRules as CommonWidgetRules;
 
 class OperationController extends Controller implements IOperatAbleController
 {
     use JsonApiTrait;
 
-    private $commonInputWidgetRules;
+    private $commonWidgetRules;
 
-    private $newsInputWidgetRules;
+    private $newsWidgetRules;
 
     private $repository;
 
@@ -32,8 +32,8 @@ class OperationController extends Controller implements IOperatAbleController
     public function __construct()
     {
         parent::__construct();
-        $this->commonInputWidgetRules = new CommonInputWidgetRules();
-        $this->newsInputWidgetRules = new NewsInputWidgetRules();
+        $this->commonWidgetRules = new CommonWidgetRules();
+        $this->newsWidgetRules = new NewsWidgetRules();
         $this->repository = new NewsRepository();
         $this->commandBus = new CommandBus(new NewsCommandHandlerFactory());
     }
@@ -41,20 +41,20 @@ class OperationController extends Controller implements IOperatAbleController
     public function __destruct()
     {
         parent::__destruct();
-        unset($this->commonInputWidgetRules);
-        unset($this->newsInputWidgetRules);
+        unset($this->commonWidgetRules);
+        unset($this->newsWidgetRules);
         unset($this->repository);
         unset($this->commandBus);
     }
 
-    protected function getCommonInputWidgetRules() : CommonInputWidgetRules
+    protected function getCommonWidgetRules() : CommonWidgetRules
     {
-        return $this->commonInputWidgetRules;
+        return $this->commonWidgetRules;
     }
 
-    protected function getNewsInputWidgetRules() : NewsInputWidgetRules
+    protected function getNewsWidgetRules() : NewsWidgetRules
     {
-        return $this->newsInputWidgetRules;
+        return $this->newsWidgetRules;
     }
 
     protected function getRepository() : NewsRepository
@@ -122,7 +122,7 @@ class OperationController extends Controller implements IOperatAbleController
     protected function validateAddScenario(
         $publishUserGroupId
     ) : bool {
-        return $this->getCommonInputWidgetRules()->formatNumeric($publishUserGroupId, 'publishUserGroupId');
+        return $this->getCommonWidgetRules()->formatNumeric($publishUserGroupId, 'publishUserGroupId');
     }
     /**
      * /news/{id:\d+}
@@ -180,10 +180,10 @@ class OperationController extends Controller implements IOperatAbleController
         $attachments,
         $content
     ) : bool {
-        return $this->getCommonInputWidgetRules()->title($title)
-            && $this->getNewsInputWidgetRules()->source($source)
-            && (empty($image) ? true : $this->getCommonInputWidgetRules()->image($image, 'image'))
-            && $this->getCommonInputWidgetRules()->attachments($attachments, 'attachments')
-            && $this->getNewsInputWidgetRules()->content($content);
+        return $this->getCommonWidgetRules()->title($title)
+            && $this->getNewsWidgetRules()->source($source)
+            && (empty($image) ? true : $this->getCommonWidgetRules()->image($image, 'image'))
+            && $this->getCommonWidgetRules()->attachments($attachments, 'attachments')
+            && $this->getNewsWidgetRules()->content($content);
     }
 }

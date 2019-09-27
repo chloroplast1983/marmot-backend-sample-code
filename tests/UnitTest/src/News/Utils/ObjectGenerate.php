@@ -30,6 +30,7 @@ class ObjectGenerate
 
         //image
         $image = isset($value['image']) ? $value['image'] : array($faker->word());
+    
         $news->setImage($image);
 
         //attachments
@@ -60,6 +61,7 @@ class ObjectGenerate
         $content = $faker->text();
 
         $contentDocument = new ContentDocument();
+        $contentDocument->setId($faker->md5);
         $contentDocument->setData(array('content'=> $content));
 
         $object->setContent($contentDocument);

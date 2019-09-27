@@ -5,7 +5,7 @@ use Respect\Validation\Validator as V;
 
 use Marmot\Core;
 
-class InputWidgetRules
+class WidgetRules
 {
     const TITLE_MIN_LENGTH = 6;
     const TITLE_MAX_LENGTH = 150;

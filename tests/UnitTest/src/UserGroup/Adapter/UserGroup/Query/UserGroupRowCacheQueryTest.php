@@ -4,7 +4,7 @@ namespace UserGroup\Adapter\UserGroup\Query;
 use PHPUnit\Framework\TestCase;
 
 use Marmot\Framework\Interfaces\DbLayer;
-use Marmot\Framework\Interfaces\CacheLayer;
+use Marmot\Interfaces\CacheLayer;
 
 class UserGroupRowCacheQueryTest extends TestCase
 {

@@ -2,7 +2,7 @@
 namespace Common\Controller;
 
 use Marmot\Core;
-use Marmot\Framework\Interfaces\INull;
+use Marmot\Interfaces\INull;
 
 use Common\Controller\Interfaces\IOperatAbleController;
 

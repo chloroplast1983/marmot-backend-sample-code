@@ -107,7 +107,7 @@ class NewsDBAdapterTest extends TestCase
                     'getRowCacheQuery',
                     'getDBTranslator',
                     'getContentDocumentAdapter',
-                    'fetchUserGroup'
+                    'fetchPublishUserGroupByNews'
                 ])->getMock();
 
         $id = 1;
@@ -123,20 +123,18 @@ class NewsDBAdapterTest extends TestCase
                                          ->shouldBeCalledTimes(1)
                                          ->willReturn($news);
 
-        if (!empty($news->getContent()->getId())) {
-            $this->contentDocumentAdapter->fetchOne(Argument::exact($news->getContent()))
+        $this->contentDocumentAdapter->fetchOne(Argument::exact($news->getContent()))
                                             ->shouldBeCalledTimes(1)
                                             ->willReturn($content);
-            $adapter->expects($this->exactly(1))
-                    ->method('getContentDocumentAdapter')
-                    ->willReturn($this->contentDocumentAdapter->reveal());
-        }
+        $adapter->expects($this->exactly(1))
+                ->method('getContentDocumentAdapter')
+                ->willReturn($this->contentDocumentAdapter->reveal());
 
         $userGroup = \UserGroup\Utils\ObjectGenerate::generateUserGroup($news->getPublishUserGroup()->getId());
 
         $adapter->expects($this->exactly(1))
-                ->method('fetchUserGroup')
-                ->with($news->getPublishUserGroup()->getId())
+                ->method('fetchPublishUserGroupByNews')
+                ->with($news)
                 ->willReturn($userGroup);
        
         $adapter->expects($this->exactly(1))

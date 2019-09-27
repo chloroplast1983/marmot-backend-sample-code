@@ -1,8 +1,8 @@
 <?php
 namespace News\CommandHandler\News;
 
-use Marmot\Framework\Interfaces\ICommand;
-use Marmot\Framework\Interfaces\ICommandHandler;
+use Marmot\Interfaces\ICommand;
+use Marmot\Interfaces\ICommandHandler;
 
 use News\Model\News;
 use News\Model\ContentDocument;

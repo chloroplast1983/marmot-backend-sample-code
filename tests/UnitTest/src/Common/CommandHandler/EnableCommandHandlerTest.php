@@ -25,7 +25,7 @@ class EnableCommandHandlerTest extends TestCase
     public function testImplementsICommandHandler()
     {
         $this->assertInstanceOf(
-            'Marmot\Framework\Interfaces\ICommandHandler',
+            'Marmot\Interfaces\ICommandHandler',
             $this->stub
         );
     }

@@ -2,7 +2,7 @@
 namespace News\Model;
 
 use Marmot\Core;
-use Marmot\Framework\Interfaces\INull;
+use Marmot\Interfaces\INull;
 
 use Common\Model\NullEnableAbleTrait;
 use Common\Model\NullOperatAbleTrait;

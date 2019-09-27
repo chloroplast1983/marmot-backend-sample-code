@@ -24,7 +24,7 @@ class NewsDBTranslatorTest extends TestCase
     public function testImplementsITranslator()
     {
         $this->assertInstanceOf(
-            'Marmot\Framework\Interfaces\ITranslator',
+            'Marmot\Interfaces\ITranslator',
             $this->translator
         );
     }
@@ -48,8 +48,8 @@ class NewsDBTranslatorTest extends TestCase
         $expression['news_id'] = $news->getId();
         $expression['title'] = $news->getTitle();
         $expression['source'] = $news->getSource();
-        $expression['image'] = $news->getImage();
-        $expression['attachments'] = $news->getAttachments();
+        $expression['image'] = json_encode($news->getImage());
+        $expression['attachments'] = json_encode($news->getAttachments());
         $expression['content'] = $news->getContent()->getId();
         $expression['publish_usergroup'] = $news->getPublishUserGroup()->getId();
         $expression['status'] = $news->getStatus();

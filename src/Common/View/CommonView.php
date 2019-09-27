@@ -1,7 +1,7 @@
 <?php
 namespace Common\View;
 
-use Marmot\Framework\Interfaces\IView;
+use Marmot\Interfaces\IView;
 
 /**
  * @SuppressWarnings(PHPMD)

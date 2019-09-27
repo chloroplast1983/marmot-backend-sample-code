@@ -32,7 +32,7 @@ class NullOperationControllerTest extends TestCase
     public function testImplementINull()
     {
         $this->assertInstanceOf(
-            'Marmot\Framework\Interfaces\INull',
+            'Marmot\Interfaces\INull',
             $this->controller
         );
     }

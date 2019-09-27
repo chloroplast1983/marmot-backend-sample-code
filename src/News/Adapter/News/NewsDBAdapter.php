@@ -78,8 +78,8 @@ class NewsDBAdapter implements INewsAdapter
         if (!empty($news->getContent()->getId())) {
             $this->getContentDocumentAdapter()->fetchOne($news->getContent());
         }
-
-        $this->fetchPublishUserGroup($news);
+        
+        $this->fetchPublishUserGroupByNews($news);
 
         return $news;
     }
@@ -101,39 +101,37 @@ class NewsDBAdapter implements INewsAdapter
             $newsList[] = $translator->arrayToObject($newsInfo);
         }
 
-        $this->fetchPublishUserGroup($newsList);
+        $this->fetchPublishUserGroupByNewsList($newsList);
         
         return $newsList;
     }
 
-    protected function fetchPublishUserGroup($news)
-    {
-        return is_array($news) ?
-        $this->fetchPublishUserGroupByList($news) :
-        $this->fetchPublishUserGroupByObject($news);
-    }
-
-    private function fetchPublishUserGroupByObject(News $news)
+    protected function fetchPublishUserGroupByNews(News $news)
     {
         $userGroupId = $news->getPublishUserGroup()->getId();
         $userGroup = $this->getUserGroupRepository()->fetchOne($userGroupId);
         $news->setPublishUserGroup($userGroup);
     }
 
-    private function fetchPublishUserGroupByList(array $newsList)
+    protected function fetchPublishUserGroupByNewsList(array $newsList)
     {
         $userGroupIds = array();
         foreach ($newsList as $news) {
             $userGroupIds[] = $news->getPublishUserGroup()->getId();
         }
 
-        $userGroupList = $this->getUserGroupRepository()->fetchList($userGroupIds);
-        if (!empty($userGroupList)) {
-            foreach ($newsList as $key => $news) {
-                if (isset($userGroupList[$key])
-                    && $userGroupList[$key]->getId() == $news->getPublishUserGroup()->getId()) {
-                       $news->setPublishUserGroup($userGroupList[$key]);
-                }
+        $userGroups = $this->getUserGroupRepository()->fetchList($userGroupIds);
+        $orderedUserGroups = [];
+        if (!empty($userGroups)) {
+            foreach ($userGroups as $userGroup) {
+                $orderedUserGroups[$userGroup->getId()] = $userGroup;
+            }
+        }
+
+        foreach ($newsList as $news) {
+            $userGroupId = $news->getPublishUserGroup()->getId();
+            if (isset($userGroupList[$userGroupId])) {
+                $news->setPublishUserGroup($userGroupList[$userGroupId]);
             }
         }
     }

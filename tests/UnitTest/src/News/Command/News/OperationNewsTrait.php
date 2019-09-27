@@ -8,7 +8,7 @@ trait OperationNewsTrait
     public function testCorrectInstanceExtendsCommand()
     {
         $this->assertInstanceOf(
-            'Marmot\Framework\Interfaces\ICommand',
+            'Marmot\Interfaces\ICommand',
             $this->stub
         );
     }

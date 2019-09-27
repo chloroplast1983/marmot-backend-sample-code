@@ -9,13 +9,13 @@ use PHPUnit\Framework\TestCase;
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 
-class InputWidgetRulesTest extends TestCase
+class WidgetRulesTest extends TestCase
 {
     private $stub;
 
     public function setUp()
     {
-        $this->stub = new InputWidgetRules();
+        $this->stub = new WidgetRules();
         Core::setLastError(ERROR_NOT_DEFINED);
     }
 
@@ -49,12 +49,12 @@ class InputWidgetRulesTest extends TestCase
 
         return array(
             array($faker->regexify(
-                '[A-Za-z0-9.%+-]{'.InputWidgetRules::SOURCE_MIN_LENGTH.','.InputWidgetRules::SOURCE_MAX_LENGTH.'}'
+                '[A-Za-z0-9.%+-]{'.WidgetRules::SOURCE_MIN_LENGTH.','.WidgetRules::SOURCE_MAX_LENGTH.'}'
             ), true),
             array($faker->regexify(
                 '[A-Za-z0-9.%+-]{'.
-                    (InputWidgetRules::SOURCE_MAX_LENGTH + 1 ).','.
-                    (InputWidgetRules::SOURCE_MAX_LENGTH + 5 ).
+                    (WidgetRules::SOURCE_MAX_LENGTH + 1 ).','.
+                    (WidgetRules::SOURCE_MAX_LENGTH + 5 ).
                 '}'
             ), false),
             array('', false),
@@ -87,12 +87,12 @@ class InputWidgetRulesTest extends TestCase
         
         return array(
             array($faker->regexify(
-                '[A-Za-z0-9.%+-]{'.InputWidgetRules::CONTENT_MIN_LENGTH.','.InputWidgetRules::CONTENT_MAX_LENGTH.'}'
+                '[A-Za-z0-9.%+-]{'.WidgetRules::CONTENT_MIN_LENGTH.','.WidgetRules::CONTENT_MAX_LENGTH.'}'
             ), true),
             array($faker->regexify(
                 '[A-Za-z0-9.%+-]{'.
-                    (InputWidgetRules::CONTENT_MAX_LENGTH + 1 ).','.
-                    (InputWidgetRules::CONTENT_MAX_LENGTH + 5 ).
+                    (WidgetRules::CONTENT_MAX_LENGTH + 1 ).','.
+                    (WidgetRules::CONTENT_MAX_LENGTH + 5 ).
                 '}'
             ), false),
             array('', false)

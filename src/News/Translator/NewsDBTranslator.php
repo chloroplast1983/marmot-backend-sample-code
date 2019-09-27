@@ -1,7 +1,7 @@
 <?php
 namespace News\Translator;
 
-use Marmot\Framework\Interfaces\ITranslator;
+use Marmot\Interfaces\ITranslator;
 
 use News\Model\News;
 use News\Model\NullNews;

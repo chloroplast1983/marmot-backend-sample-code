@@ -1,7 +1,7 @@
 <?php
 namespace Marmot\Application;
 
-use Marmot\Framework\Application\IApplication;
+use Marmot\Interfaces\Application\IApplication;
 
 define('APPLICATION_ROOT', dirname(__FILE__) . DIRECTORY_SEPARATOR);
 

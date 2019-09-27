@@ -1,8 +1,8 @@
 <?php
 namespace Common\CommandHandler;
 
-use Marmot\Framework\Interfaces\ICommand;
-use Marmot\Framework\Interfaces\ICommandHandler;
+use Marmot\Interfaces\ICommand;
+use Marmot\Interfaces\ICommandHandler;
 
 use Common\Model\IEnableAble;
 use Common\Command\EnableCommand;

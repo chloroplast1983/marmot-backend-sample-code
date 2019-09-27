@@ -1,7 +1,7 @@
 <?php
 namespace News\Controller;
 
-use Marmot\Framework\Interfaces\INull;
+use Marmot\Interfaces\INull;
 use Marmot\Framework\Classes\Controller;
 use Marmot\Framework\Controller\JsonApiTrait;
 

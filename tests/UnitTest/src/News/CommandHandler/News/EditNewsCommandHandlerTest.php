@@ -4,7 +4,7 @@ namespace News\CommandHandler\News;
 use Prophecy\Argument;
 use PHPUnit\Framework\TestCase;
 
-use Marmot\Framework\Interfaces\ICommand;
+use Marmot\Interfaces\ICommand;
 
 use News\Model\News;
 use News\Model\ContentDocument;
@@ -38,7 +38,7 @@ class EditNewsCommandHandlerTest extends TestCase
     public function testCorrectInstanceImplementCommandHandler()
     {
         $this->assertInstanceOf(
-            'Marmot\Framework\Interfaces\ICommandHandler',
+            'Marmot\Interfaces\ICommandHandler',
             $this->editStub
         );
     }
