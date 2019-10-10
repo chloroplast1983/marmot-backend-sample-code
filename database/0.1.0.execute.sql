@@ -22,7 +22,7 @@ CREATE TABLE `pcore_news` (
   `source` varchar(255) NOT NULL COMMENT '来源',
   `image` json NOT NULL COMMENT '图片',
   `attachments` json NOT NULL COMMENT '附件',
-  `content` char(24) NOT NULL COMMENT '内容',
+  `content` char(24) NOT NULL COMMENT '内容, mongo id',
   `publish_usergroup` int(10) NOT NULL COMMENT '发布单位id',
   `create_time` int(10) NOT NULL COMMENT '创建时间',
   `update_time` int(10) NOT NULL COMMENT '更新时间',

@@ -118,13 +118,13 @@ class Core extends MarmotCore
      *
      * @version 1.0.20160204
      */
-    protected function initDb()
+    protected function initDb() : void
     {
         parent::initMysql();
         parent::initMongo();
     }
 
-    protected function initCache()
+    protected function initCache() : void
     {
         parent::initMemcached(self::$container->get('memcached.serevice'));
     }
