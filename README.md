@@ -38,6 +38,8 @@
 	* [新闻字典](./Docs/Dictionary/news.md "新闻字典")
 * 委办局字典 `userGroup`
 	* [委办局字典](./Docs/Dictionary/userGroup.md "委办局字典")
+* 用户字典 `member`
+	* [用户字典](./Docs/Dictionary/member.md "用户字典")
 	
 ---
 
@@ -47,6 +49,8 @@
 	* [通用规范](./Docs/WidgetRule/common.md "通用规范")
 * 新闻规范 `news`
 	* [新闻规范](./Docs/WidgetRule/news.md "新闻规范")
+* 用户规范 `member`
+	* [用户规范](./Docs/WidgetRule/member.md "用户规范")
 	
 ---
 
@@ -56,6 +60,8 @@
 	* [通用规范](./Docs/ErrorRule/common.md "通用规范")
 * 新闻规范 `news`
 	* [新闻规范](./Docs/ErrorRule/news.md "新闻规范")
+* 用户规范 `member`
+	* [用户规范](./Docs/ErrorRule/member.md "用户规范")
 	
 ---
 
@@ -65,6 +71,8 @@
 	* [新闻](./Docs/Api/newsApi.md "新闻")
 * 委办局 `userGroup`
 	* [委办局](./Docs/Api/userGroupApi.md "委办局")
+* 用户 `member`
+	* [用户](./Docs/Api/memberApi.md "用户")
 
 ---
 

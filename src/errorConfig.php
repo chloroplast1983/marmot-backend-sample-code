@@ -41,6 +41,30 @@ define('IMAGE_FORMAT_ERROR', 202);
  */
 define('ATTACHMENT_FORMAT_ERROR', 203);
 /**
+ * 姓名格式不正确
+ */
+define('REAL_NAME_FORMAT_ERROR', 204);
+/**
+ * 手机号格式不正确
+ */
+define('CELLPHONE_FORMAT_ERROR', 205);
+/**
+ * 价格格式不正确
+ */
+define('PRICE_FORMAT_ERROR', 206);
+/**
+ * 身份证格式不正确
+ */
+define('CARDID_FORMAT_ERROR', 207);
+/**
+ * 日期格式不正确
+ */
+define('DATE_FORMAT_ERROR', 208);
+/**
+ * 名称格式不正确
+ */
+define('NAME_FORMAT_ERROR', 209);
+/**
  * 新闻来源格式不正确
  */
 define('NEWS_SOURCE_FORMAT_ERROR', 1001);
@@ -48,3 +72,11 @@ define('NEWS_SOURCE_FORMAT_ERROR', 1001);
  * 新闻内容格式不正确
  */
 define('NEWS_CONTENT_FORMAT_ERROR', 1002);
+/**
+ * 密码格式不正确
+ */
+define('PASSWORD_FORMAT_ERROR', 2001);
+/**
+ * 密码不正确
+ */
+define('PASSWORD_INCORRECT', 2002);

@@ -5,6 +5,9 @@ use Respect\Validation\Validator as V;
 
 use Marmot\Core;
 
+/**
+ * @SuppressWarnings(PHPMD.TooManyPublicMethods)
+ */
 class WidgetRules
 {
     const TITLE_MIN_LENGTH = 6;
@@ -91,6 +94,92 @@ class WidgetRules
             && !V::extension('xlsx')->validate($attachment)
             && !V::extension('pdf')->validate($attachment)
         ) {
+            return false;
+        }
+
+        return true;
+    }
+
+    const REAL_NAME_MIN_LENGTH = 2;
+    const REAL_NAME_MAX_LENGTH = 20;
+
+    public function realName($realName) : bool
+    {
+        if (!V::charset('UTF-8')->stringType()->length(
+            self::REAL_NAME_MIN_LENGTH,
+            self::REAL_NAME_MAX_LENGTH
+        )->validate($realName)) {
+            Core::setLastError(REAL_NAME_FORMAT_ERROR);
+            return false;
+        }
+
+        return true;
+    }
+
+    public function cellphone($cellphone) : bool
+    {
+        $reg = '/^[1][0-9]{10}$/';
+        if (!preg_match($reg, $cellphone)) {
+            Core::setLastError(CELLPHONE_FORMAT_ERROR);
+            return false;
+        }
+
+        return true;
+    }
+
+    public function price($price) : bool
+    {
+        $reg = '/^(?!.{12,}$)\d+(\.\d{1,2})?$/';
+
+        if (!V::FloatVal()->notEmpty()->validate($price) || !preg_match($reg, $price)) {
+            Core::setLastError(PRICE_FORMAT_ERROR);
+            return false;
+        }
+        
+        return true;
+    }
+
+    public function cardId($cardId) : bool
+    {
+        if (!V::alnum()->noWhitespace()->length(15, 15)->validate($cardId)
+            && !V::alnum()->noWhitespace()->length(18, 18)->validate($cardId)) {
+            Core::setLastError(USER_CARDID_FORMAT_ERROR);
+            return false;
+        }
+
+        return true;
+    }
+
+    public function date($date, $pointer = 'date') : bool
+    {
+        if (date('Y-m-d', strtotime($date)) != $date) {
+            Core::setLastError(DATE_FORMAT_ERROR, array('pointer'=>$pointer));
+            return false;
+        }
+
+        return true;
+    }
+
+    const NAME_MIN_LENGTH = 2;
+    const NAME_MAX_LENGTH = 20;
+
+    public function name($name) : bool
+    {
+        if (!V::charset('UTF-8')->stringType()->length(
+            self::NAME_MIN_LENGTH,
+            self::NAME_MAX_LENGTH
+        )->validate($name)) {
+            Core::setLastError(NAME_FORMAT_ERROR, array('pointer'=>'name'));
+            return false;
+        }
+
+        return true;
+    }
+
+    public function url($url, $pointer = 'url') : bool
+    {
+        if (!V::url()->validate($url)) {
+            Core::setLastError(URL_FORMAT_ERROR, array('pointer'=>$pointer));
             return false;
         }
 

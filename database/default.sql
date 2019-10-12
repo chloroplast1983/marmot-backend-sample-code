@@ -14,3 +14,6 @@ INSERT INTO `pcore_usergroup` (`usergroup_id`, `name`, `create_time`, `update_ti
 (11, '国有资产监督管理委员会', 1516168970, 1516168970, 0, 0),
 (12, '教育局', 1516168970, 1516168970, 0, 0),
 (13, '司法局', 1516168970, 1516168970, 0, 0);
+
+INSERT INTO `pcore_member` (`member_id`, `cellphone`, `user_name`, `real_name`, `password`, `salt`, `cardid`, `avatar`, `status`, `create_time`, `update_time`, `status_time`) VALUES
+(1, '18800000000', '18800000000', '张文', '3f468e06173bfdeae980d0adbebb003b', 'dqdG', '412825199009094553', '{}', 0, 1516174523, 1516174523, 0);

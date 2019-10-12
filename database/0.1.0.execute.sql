@@ -36,3 +36,26 @@ ALTER TABLE `pcore_news`
 
 ALTER TABLE `pcore_news`
   MODIFY `news_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '新闻id';
+
+CREATE TABLE `pcore_member` (
+  `member_id` int(10) NOT NULL COMMENT '用户主键id',
+  `cellphone` char(11) DEFAULT NULL COMMENT '手机号',
+  `user_name` varchar(255) NOT NULL COMMENT '用户名',
+  `real_name` varchar(50) NOT NULL COMMENT '姓名',
+  `cardid` char(18) NOT NULL COMMENT '身份证号',
+  `avatar` json NOT NULL COMMENT '头像',
+  `password` char(32) NOT NULL COMMENT '用户密码',
+  `salt` char(4) NOT NULL COMMENT '盐杂质',
+  `status` tinyint(1) NOT NULL COMMENT '状态(默认 0 启用, -2 禁用)',
+  `create_time` int(10) NOT NULL COMMENT '创建时间',
+  `update_time` int(10) NOT NULL COMMENT '更新时间',
+  `status_time` int(10) NOT NULL COMMENT '状态更新时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
+
+ALTER TABLE `pcore_member`
+  ADD PRIMARY KEY (`member_id`),
+  ADD UNIQUE KEY `user_name` (`user_name`),
+  ADD UNIQUE KEY `cellphone` (`cellphone`);
+
+ALTER TABLE `pcore_member`
+  MODIFY `member_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '用户主键id', AUTO_INCREMENT=1;

@@ -8,7 +8,8 @@ class FetchControllerFactory
 {
     const MAPS = array(
         'news'=>'\News\Controller\FetchController',
-        'userGroups'=>'\UserGroup\Controller\FetchController'
+        'userGroups'=>'\UserGroup\Controller\FetchController',
+        'members'=>'\Member\Controller\FetchController'
     );
 
     public static function getFetchController(string $resource) : IFetchAbleController

@@ -16,4 +16,10 @@ class OperationControllerFactoryTest extends TestCase
         $controller = OperationControllerFactory::getController('news');
         $this->assertInstanceOf('News\Controller\OperationController', $controller);
     }
+
+    public function testMemberOperationController()
+    {
+        $controller = OperationControllerFactory::getController('members');
+        $this->assertInstanceOf('Member\Controller\OperationController', $controller);
+    }
 }

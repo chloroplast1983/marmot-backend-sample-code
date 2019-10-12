@@ -105,6 +105,84 @@ return array(
             ),
             'meta'=>array()
         ),
+    REAL_NAME_FORMAT_ERROR=>
+        array(
+            'id'=>REAL_NAME_FORMAT_ERROR,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'REAL_NAME_FORMAT_ERROR',
+            'title'=>'姓名格式错误',
+            'detail'=>'姓名格式错误',
+            'source'=>array(
+                'pointer'=>'realName'
+            ),
+            'meta'=>array()
+        ),
+    CELLPHONE_FORMAT_ERROR=>
+        array(
+            'id'=>CELLPHONE_FORMAT_ERROR,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'CELLPHONE_FORMAT_ERROR',
+            'title'=>'手机号格式错误',
+            'detail'=>'手机号格式错误',
+            'source'=>array(
+                'pointer'=>'cellphone'
+            ),
+            'meta'=>array()
+        ),
+    PRICE_FORMAT_ERROR=>
+        array(
+            'id'=>PRICE_FORMAT_ERROR,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'PRICE_FORMAT_ERROR',
+            'title'=>'价格格式错误',
+            'detail'=>'价格格式错误',
+            'source'=>array(
+                'pointer'=>'price'
+            ),
+            'meta'=>array()
+        ),
+    CARDID_FORMAT_ERROR=>
+        array(
+            'id'=>CARDID_FORMAT_ERROR,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'CARDID_FORMAT_ERROR',
+            'title'=>'身份证格式不正确',
+            'detail'=>'身份证格式不正确',
+            'source'=>array(
+                'pointer'=>'cardid'
+            ),
+            'meta'=>array()
+        ),
+    DATE_FORMAT_ERROR=>
+        array(
+            'id'=>DATE_FORMAT_ERROR,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'DATE_FORMAT_ERROR',
+            'title'=>'日期格式不正确',
+            'detail'=>'日期格式不正确',
+            'source'=>array(
+                'pointer'=>'date'
+            ),
+            'meta'=>array()
+        ),
+    NAME_FORMAT_ERROR=>
+        array(
+            'id'=>NAME_FORMAT_ERROR,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'NAME_FORMAT_ERROR',
+            'title'=>'名称格式不正确',
+            'detail'=>'名称格式不正确',
+            'source'=>array(
+                'pointer'=>'name'
+            ),
+            'meta'=>array()
+        ),
     NEWS_SOURCE_FORMAT_ERROR=>
         array(
             'id'=>NEWS_SOURCE_FORMAT_ERROR,
@@ -128,6 +206,32 @@ return array(
             'detail'=>'新闻内容格式不正确',
             'source'=>array(
                 'pointer'=>'content'
+            ),
+            'meta'=>array()
+        ),
+    PASSWORD_FORMAT_ERROR=>
+        array(
+            'id'=>PASSWORD_FORMAT_ERROR,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'PASSWORD_FORMAT_ERROR',
+            'title'=>'密码格式不正确',
+            'detail'=>'密码格式不正确',
+            'source'=>array(
+                'pointer'=>'password'
+            ),
+            'meta'=>array()
+        ),
+    PASSWORD_INCORRECT=>
+        array(
+            'id'=>PASSWORD_INCORRECT,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'PASSWORD_INCORRECT',
+            'title'=>'密码不正确',
+            'detail'=>'密码不正确',
+            'source'=>array(
+                'pointer'=>'password'
             ),
             'meta'=>array()
         ),

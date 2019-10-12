@@ -81,4 +81,22 @@ return [
                 'disable'
             ]
         ],
+        //注册
+        [
+            'method'=>'POST',
+            'rule'=>'/members/signUp',
+            'controller'=>[
+                'Member\Controller\OperationController',
+                'signUp'
+            ]
+        ],
+        //登录
+        [
+            'method'=>'POST',
+            'rule'=>'/members/signIn',
+            'controller'=>[
+                'Member\Controller\OperationController',
+                'signIn'
+            ]
+        ],
     ];
