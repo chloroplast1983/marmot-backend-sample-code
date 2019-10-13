@@ -8,7 +8,8 @@ class OperationControllerFactory
 {
     const MAPS = array(
         'news'=>'\News\Controller\OperationController',
-        'members'=>'\Member\Controller\OperationController'
+        'members'=>'\Member\Controller\OperationController',
+        'homestaies'=>'\Homestay\Controller\OperationController'
     );
 
     public static function getController(string $resource) : IOperatAbleController

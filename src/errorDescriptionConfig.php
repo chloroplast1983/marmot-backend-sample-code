@@ -27,7 +27,7 @@ return array(
             ),
             'meta'=>array()
         ),
-     PARAMETER_FORMAT_ERROR=>
+    PARAMETER_FORMAT_ERROR=>
         array(
             'id'=>PARAMETER_FORMAT_ERROR,
             'link'=>'',
@@ -61,6 +61,84 @@ return array(
             'code'=>'RESOURCE_STATUS_ENABLED',
             'title'=>'状态已启用',
             'detail'=>'表述该资源状态已启用.',
+            'source'=>array(
+                'pointer'=>'status'
+            ),
+            'meta'=>array()
+        ),
+    RESOURCE_STATUS_ON_SHELF=>
+        array(
+            'id'=>RESOURCE_STATUS_ON_SHELF,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'RESOURCE_STATUS_ON_SHELF',
+            'title'=>'状态已上架',
+            'detail'=>'资源状态已上架',
+            'source'=>array(
+                'pointer'=>'status'
+            ),
+            'meta'=>array()
+        ),
+    RESOURCE_STATUS_OFF_STOCK=>
+        array(
+            'id'=>RESOURCE_STATUS_OFF_STOCK,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'RESOURCE_STATUS_OFF_STOCK',
+            'title'=>'状态已下架',
+            'detail'=>'资源状态已下架',
+            'source'=>array(
+                'pointer'=>'status'
+            ),
+            'meta'=>array()
+        ),
+    RESOURCE_STATUS_NOT_PENDING=>
+        array(
+            'id'=>RESOURCE_STATUS_NOT_PENDING,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'RESOURCE_STATUS_NOT_PENDING',
+            'title'=>'审核状态非待审核',
+            'detail'=>'审核状态非待审核',
+            'source'=>array(
+                'pointer'=>'applyStatus'
+            ),
+            'meta'=>array()
+        ),
+    RESOURCE_STATUS_NOT_REJECT=>
+        array(
+            'id'=>RESOURCE_STATUS_NOT_REJECT,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'RESOURCE_STATUS_NOT_REJECT',
+            'title'=>'审核状态不是已拒绝',
+            'detail'=>'资源审核状态不是已拒绝',
+            'source'=>array(
+                'pointer'=>'applyStatus'
+            ),
+            'meta'=>array()
+        ),
+    RESOURCE_STATUS_NOT_ON_SHELF=>
+        array(
+            'id'=>RESOURCE_STATUS_NOT_ON_SHELF,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'RESOURCE_STATUS_NOT_ON_SHELF',
+            'title'=>'状态不是已上架',
+            'detail'=>'状态不是已上架',
+            'source'=>array(
+                'pointer'=>'status'
+            ),
+            'meta'=>array()
+        ),
+    RESOURCE_STATUS_NOT_NORMAL=>
+        array(
+            'id'=>RESOURCE_STATUS_NOT_NORMAL,
+            'link'=>'',
+            'status'=>403,
+            'code'=>'RESOURCE_STATUS_NOT_NORMAL',
+            'title'=>'状态非正常状态',
+            'detail'=>'状态非正常状态',
             'source'=>array(
                 'pointer'=>'status'
             ),

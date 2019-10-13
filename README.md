@@ -40,6 +40,8 @@
 	* [委办局字典](./Docs/Dictionary/userGroup.md "委办局字典")
 * 用户字典 `member`
 	* [用户字典](./Docs/Dictionary/member.md "用户字典")
+* 民宿字典 `homestay`
+	* [民宿字典](./Docs/Dictionary/homestay.md "民宿字典")
 	
 ---
 
@@ -73,6 +75,8 @@
 	* [委办局](./Docs/Api/userGroupApi.md "委办局")
 * 用户 `member`
 	* [用户](./Docs/Api/memberApi.md "用户")
+* 民宿 `homestay`
+	* [民宿](./Docs/Api/homestayApi.md "民宿")
 
 ---
 

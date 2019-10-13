@@ -22,15 +22,15 @@
 ## <a name="参考文档">参考文档</a>
 
 * 项目字典
-	* [通用项目字典](./Docs/Dictionary/common.md "通用项目字典")
-	* [新闻项目字典](./Docs/Dictionary/news.md "新闻项目字典")
-	* [委办局项目字典](./Docs/Dictionary/userGroup.md "委办局项目字典")
+	* [通用项目字典](../Dictionary/common.md "通用项目字典")
+	* [新闻项目字典](../Dictionary/news.md "新闻项目字典")
+	* [委办局项目字典](../Dictionary/userGroup.md "委办局项目字典")
 *  控件规范
-	* [通用控件规范](./Docs/WidgetRule/common.md "通用控件规范")
-	* [新闻控件规范](./Docs/WidgetRule/news.md "新闻控件规范")
+	* [通用控件规范](../WidgetRule/common.md "通用控件规范")
+	* [新闻控件规范](../WidgetRule/news.md "新闻控件规范")
 * 错误规范
-	* [通用错误规范](./Docs/ErrorRule/common.md "通用错误规范")
-	* [新闻错误规范](./Docs/ErrorRule/news.md "新闻错误规范")
+	* [通用错误规范](../ErrorRule/common.md "通用错误规范")
+	* [新闻错误规范](../ErrorRule/news.md "新闻错误规范")
 
 ## <a name="参数说明">参数说明</a>
      

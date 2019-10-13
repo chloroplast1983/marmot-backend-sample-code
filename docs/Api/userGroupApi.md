@@ -18,8 +18,8 @@
 ## <a name="参考文档">参考文档</a>
 
 * 项目字典
-	* [通用项目字典](./Docs/Dictionary/common.md "通用项目字典")
-	* [委办局项目字典](./Docs/Dictionary/userGroup.md "委办局项目字典")
+	* [通用项目字典](../Dictionary/common.md "通用项目字典")
+	* [委办局项目字典](../Dictionary/userGroup.md "委办局项目字典")
 
 ## <a name="参数说明">参数说明</a>
      

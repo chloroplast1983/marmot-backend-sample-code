@@ -59,3 +59,19 @@ ALTER TABLE `pcore_member`
 
 ALTER TABLE `pcore_member`
   MODIFY `member_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '用户主键id', AUTO_INCREMENT=1;
+
+CREATE TABLE `pcore_homestay` (
+  `homestay_id` int(10) NOT NULL COMMENT '民宿主键id',
+  `name` varchar(255) NOT NULL COMMENT '名称',
+  `logo` json NOT NULL COMMENT 'logo',
+  `status` tinyint(1) NOT NULL COMMENT '状态(默认 0 待审核, 2 上架, -2 下架, -4 驳回)',
+  `create_time` int(10) NOT NULL COMMENT '创建时间',
+  `update_time` int(10) NOT NULL COMMENT '更新时间',
+  `status_time` int(10) NOT NULL COMMENT '状态更新时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='民宿表';
+
+ALTER TABLE `pcore_homestay`
+  ADD PRIMARY KEY (`homestay_id`);
+
+ALTER TABLE `pcore_homestay`
+  MODIFY `homestay_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '民宿主键id', AUTO_INCREMENT=1;

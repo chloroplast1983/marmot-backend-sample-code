@@ -30,6 +30,9 @@ abstract class CommonView implements IView
 
             \Member\Model\Member::class => \Member\View\MemberSchema::class,
             \Member\Model\NullMember::class => \Member\View\MemberSchema::class,
+
+            \Homestay\Model\Homestay::class => \Homestay\View\HomestaySchema::class,
+            \Homestay\Model\NullHomestay::class => \Homestay\View\HomestaySchema::class,
         );
     }
     

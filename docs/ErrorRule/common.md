@@ -50,7 +50,13 @@
 * `ER-0102`: 数据格式不正确
 * `ER-0103`: 状态已禁用
 * `ER-0104`: 状态已启用
-* `ER-0105` - `ER-0200`: 映射错误预留
+* `ER-0105`: 状态已上架
+* `ER-0106`: 状态已下架
+* `ER-0107`: 审核状态非待审核
+* `ER-0108`: 审核状态非已拒绝
+* `ER-0109`: 状态非上架状态
+* `ER-0110`: 状态非正常状态
+* `ER-0111` - `ER-0200`: 映射错误预留
 * `ER-0201`: 标题格式
 * `ER-0202`: 图片格式不正确 
 * `ER-0203`: 附件格式不正确 
@@ -402,7 +408,139 @@ csrf 验证失效.
 
 待补充
 
-ER-0105 - ER-0200
+### <a name="ER-0105">ER-0105</a>
+
+**id**
+
+`105`
+
+**code**
+
+`RESOURCE_STATUS_ON_SHELF`
+
+**title**
+
+状态已上架
+
+**detail**
+
+表述该资源状态已上架.
+
+**links**
+
+待补充
+
+### <a name="ER-0106">ER-0106</a>
+
+**id**
+
+`106`
+
+**code**
+
+`RESOURCE_STATUS_OFF_STOCK`
+
+**title**
+
+状态已下架
+
+**detail**
+
+表述该资源状态已下架.
+
+**links**
+
+待补充
+
+### <a name="ER-0107">ER-0107</a>
+
+**id**
+
+`107`
+
+**code**
+
+`RESOURCE_STATUS_NOT_PENDING`
+
+**title**
+
+审核状态非待审核
+
+**detail**
+
+表述该资源已经审核.
+
+**links**
+
+待补充
+
+### <a name="ER-0108">ER-0108</a>
+
+**id**
+
+`108`
+
+**code**
+
+`RESOURCE_STATUS_NOT_REJECT`
+
+**title**
+
+审核状态非已拒绝
+
+**detail**
+
+表述该资源非已拒绝.
+
+**links**
+
+待补充
+
+### <a name="ER-0109">ER-0109</a>
+
+**id**
+
+`109`
+
+**code**
+
+`RESOURCE_STATUS_NOT_ON_SHELF`
+
+**title**
+
+状态非上架状态
+
+**detail**
+
+表述该资源非已上架.
+
+**links**
+
+待补充
+
+### <a name="ER-0110">ER-0110</a>
+
+**id**
+
+`110`
+
+**code**
+
+`RESOURCE_STATUS_NOT_NORMAL`
+
+**title**
+
+状态非正常状态
+
+**detail**
+
+表述该资源非正常.
+
+**links**
+
+待补充
+
+ER-0111 - ER-0200
 
 映射错误预留
 

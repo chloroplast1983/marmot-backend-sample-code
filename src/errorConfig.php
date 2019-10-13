@@ -27,7 +27,30 @@ define('RESOURCE_STATUS_DISABLED', 103);
  * 状态已启用
  */
 define('RESOURCE_STATUS_ENABLED', 104);
-
+/**
+ * 状态已上架
+ */
+define('RESOURCE_STATUS_ON_SHELF', 105);
+/**
+ * 状态已下架
+ */
+define('RESOURCE_STATUS_OFF_STOCK', 106);
+/**
+ * 审核状态非待审核
+ */
+define('RESOURCE_STATUS_NOT_PENDING', 107);
+/**
+ * 审核状态非已驳回
+ */
+define('RESOURCE_STATUS_NOT_REJECT', 108);
+/**
+ * 状态非上架状态
+ */
+define('RESOURCE_STATUS_NOT_ON_SHELF', 109);
+/**
+ * 状态非正常状态
+ */
+define('RESOURCE_STATUS_NOT_NORMAL', 110);
 /**
  * 标题格式不正确
  */

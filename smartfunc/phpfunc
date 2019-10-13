@@ -25,11 +25,11 @@ function unitFile {
 }
 
 function unitCover {
-	docker exec $1 phpdbg -qrr ./vendor/bin/phpunit --debug --stop-on-failure --coverage-html ./Docs/UnitTestCover
+	docker exec $1 phpdbg -qrr ./vendor/bin/phpunit --debug --stop-on-failure --coverage-html ./docs/UnitTestCover
 }
 
 function unitFileCover {
-	docker exec $1 phpdbg -qrr ./vendor/bin/phpunit --filter="$2" --debug --stop-on-failure --coverage-html ./Docs/UnitTestCoverTemp
+	docker exec $1 phpdbg -qrr ./vendor/bin/phpunit --filter="$2" --debug --stop-on-failure --coverage-html ./docs/UnitTestCoverTemp
 }
 
 function md {
